@@ -35,3 +35,27 @@ And any feedback is really appreciated!
 - Options to build as a header-only library or executable, not just a static or shared library.
 
 - Ccache integration, for speeding up rebuild times
+
+# Installing
+
+TBD
+
+# Building
+
+TBD
+
+# Generating the documentation
+
+TBD
+
+# Testing
+
+TBD
+
+# Contributing
+
+TBD
+
+# License
+
+This project is licensed under the [Unlicense](https://unlicense.org/) - see the [LICENSE](https://github.com/dimanikulin/capable-cpp-template?tab=Unlicense-1-ov-file) file for details
