@@ -2,12 +2,17 @@
   <a href="./resources/icons/main.png" target="blank"><img src="./resources/icons/main.png" width="120" alt="Your Logo" /></a>
 </p>
 <p align="center">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/dimanikulin/capable-cpp-template">
+  <img alt="GitHub followers" src="https://img.shields.io/github/followers/dimanikulin?style=social">
+  <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/dimanikulin/capable-cpp-template">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/dimanikulin/capable-cpp-template">
+  </br>
+
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/dimanikulin/capable-cpp-template?include_prereleases">
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/dimanikulin/capable-cpp-template/total">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date-pre/dimanikulin/capable-cpp-template">
   </br>
   <a href="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml"><img src="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml/badge.svg?branch=master" alt="Tests"/></a>
-  <a href="https://www.codefactor.io/repository/github/dimanikulin/capable-cpp-template"><img src="https://www.codefactor.io/repository/github/dimanikulin/capable-cpp-template/badge" alt="CodeFactor" /></a>
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/dimanikulin/capable-cpp-template">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dimanikulin/capable-cpp-template">
   </br>
@@ -20,6 +25,9 @@
   <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/dimanikulin/capable-cpp-template">
   <img alt="GitHub" src="https://img.shields.io/github/license/dimanikulin/capable-cpp-template">
   <a href="https://github.com/dimanikulin/capable-cpp-template/edit/master/README.md"><img src="https://img.shields.io/badge/documentation-read-d90368"> </a>
+  </br>
+
+
 </p>
 
 # Description
