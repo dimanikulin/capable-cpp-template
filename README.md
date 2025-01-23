@@ -1,3 +1,27 @@
+<p align="center">
+  <a href="./resources/icons/main.png" target="blank"><img src="./resources/icons/main.png" width="120" alt="Your Logo" /></a>
+</p>
+<p align="center">
+  <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/dimanikulin/capable-cpp-template?include_prereleases">
+  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/dimanikulin/capable-cpp-template/total">
+  <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date-pre/dimanikulin/capable-cpp-template">
+  </br>
+  <a href="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml"><img src="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml/badge.svg?branch=master" alt="Tests"/></a>
+  <a href="https://www.codefactor.io/repository/github/dimanikulin/capable-cpp-template"><img src="https://www.codefactor.io/repository/github/dimanikulin/capable-cpp-template/badge" alt="CodeFactor" /></a>
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/dimanikulin/capable-cpp-template">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dimanikulin/capable-cpp-template">
+  </br>
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/dimanikulin/capable-cpp-template">
+  <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/dimanikulin/capable-cpp-template">
+  <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/dimanikulin/capable-cpp-template">
+  <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/dimanikulin/capable-cpp-template">
+  </br>
+  <a href="https://github.com/dimanikulin/capable-cpp-template/projects/1"><img src="https://img.shields.io/badge/roadmap-view-d90368"> </a>
+  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/dimanikulin/capable-cpp-template">
+  <img alt="GitHub" src="https://img.shields.io/github/license/dimanikulin/capable-cpp-template">
+  <a href="https://github.com/dimanikulin/capable-cpp-template/edit/master/README.md"><img src="https://img.shields.io/badge/documentation-read-d90368"> </a>
+</p>
+
 # Description
 
 A template for C++ projects using CI, Building, Testing, Formatting, Documenting and more
@@ -10,13 +34,11 @@ And any feedback is really appreciated!
 
 - Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)
 
-- MD Template for: Main README, TBD
+- MD Template for: Main README(Logo, Badges), TBD
 
 - Use of Ccache to speed up the builds (CI)
 
 # Coming features, first
-
-- Main logo and Badges in Readme
 
 - Quick Links in Readme
 
