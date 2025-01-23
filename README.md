@@ -1,4 +1,4 @@
-# Capable cpp template
+# Description
 
 A template for C++ projects using CI, Building, Testing, Formatting, Documenting and more
 Aimed to use starting point with a big number of features with easy way to include or exclude a feature.
@@ -10,31 +10,49 @@ And any feedback is really appreciated!
 
 - Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)
 
-# Coming features
+- MD Template for: Main README, TBD
 
-- badges
+- Use of Ccache to speed up the builds (CI)
 
-- Modern CMake configuration and project, which, to the best of my knowledge, uses the best practices,
+# Coming features, first
+
+- Main logo and Badges in Readme
+
+- Quick Links in Readme
+
+- Using mermainjs to draw the diagramss in README
+
+- tables in README
+
+- build with Ninja and Cmake(CI)
+
+- CMake configuration
+
+- Doxygen support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
+
+- Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally)
+
+- Using GitHub Actions CI workflows for Windows Linux and MacOS
+
+# Coming features, next
+
+- Publish Test Results
+
+- Using QT (CI and Locally)
+
+- Md Contributing Guideliness, Issues and Pull Requests,
 
 - An example of a Clang-Format config, inspired from the base Google model, with minor tweaks. This is aimed only as a starting point, as coding style is a subjective matter, everyone is free to either delete it (for the LLVM default) or supply their own alternative,
 
-- Static analyzers integration, with Clang-Tidy and Cppcheck, the former being the default option,
-
-- Doxygen support, through the ENABLE_DOXYGEN option, which you can enable if you wish to use it,
-
-- Unit testing support, through GoogleTest (with an option to enable GoogleMock) or Catch2,
+- Static analyzers integration, with Clang-Tidy and Cppcheck(CI and Locally), the former being the default option,
 
 - Code coverage, enabled by using the ENABLE_CODE_COVERAGE option, through Codecov CI integration,
 
 - Package manager support, with Conan and Vcpkg, through their respective options
 
-- CI workflows for Windows, Linux and MacOS using GitHub Actions, making use of the caching features, to ensure minimum run time,
+- use Wix for win packages
 
-- .md templates for: README, Contributing Guideliness, Issues and Pull Requests,
-
-- Options to build as a header-only library or executable, not just a static or shared library.
-
-- Ccache integration, for speeding up rebuild times
+- resources
 
 # Installing
 
@@ -42,19 +60,26 @@ TBD
 
 # Building
 
+Locally or on CI
 TBD
 
 # Generating the documentation
 
+Locally or on CI
 TBD
 
 # Testing
 
+Locally or on CI
 TBD
 
 # Contributing
 
 TBD
+
+# Author
+
+[Dmytro Nikulin](https://github.com/dimanikulin)
 
 # License
 
