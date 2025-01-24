@@ -31,7 +31,21 @@
 
 # Quick Links
 
-TBD
+- [Description](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#description)
+- [Features](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#features)
+- [Installing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#installing)
+- [Building](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#building)
+- [Using QT](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#using-qt)
+- [Testing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#testing)
+- [Formatting](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#formatting)
+- [Static analyzers](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#static-analyzers)
+- [Code coverage](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#code-coverage)
+- [Documentation](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#documentation)
+- [Packaging](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#packaging)
+- [Coming Features](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#coming-features)
+- [Contributing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#contributing)
+- [Author](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#author)
+- [License](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#license)
 
 # Description
 
@@ -45,9 +59,11 @@ And any feedback is really appreciated!
 
 # Features
 
+TODO Add Table here
+
 - Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)
 
-- MD Template for: Main README(Logo, Badges), TBD
+- MD Template for: Main README(Logo, Badges, Quick Links), TBD
 
 - Use of Ccache to speed up the builds (CI)
 
@@ -89,6 +105,8 @@ Locally or on CI
 TBD
 say about table
 and insert meermanh js
+main logo
+badges
 
 # Packaging
 
@@ -96,9 +114,7 @@ TBD
 
 # Coming features
 
-Add Table
-
-- Quick Links in Readme
+Add Table here
 
 - Using mermainjs to draw the diagramss in README
 
