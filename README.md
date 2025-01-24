@@ -85,6 +85,8 @@ And any feedback is really appreciated!
 - resources
 
 # Installing
+Repo must be public to use badges 
+
 
 TBD
 
