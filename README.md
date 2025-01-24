@@ -27,18 +27,23 @@
   <a href="https://github.com/dimanikulin/capable-cpp-template/edit/master/README.md"><img src="https://img.shields.io/badge/documentation-read-d90368"> </a>
   </br>
 
-
 </p>
+
+# Quick Links
+
+TBD
 
 # Description
 
-A template for C++ projects using CI, Building, Testing, Formatting, Documenting and more
+A template for C++ projects using CI, Building, Testing, Formatting, Documenting and more.
+
 Aimed to use starting point with a big number of features with easy way to include or exclude a feature.
 
 This is my POV on such a type of template, thus you might disagree with what I use and how I do things.
+
 And any feedback is really appreciated!
 
-# Ready features
+# Features
 
 - Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)
 
@@ -46,7 +51,52 @@ And any feedback is really appreciated!
 
 - Use of Ccache to speed up the builds (CI)
 
-# Coming features, first
+# Installing
+
+Repo must be public to use badges
+
+TBD
+
+# Building
+
+Locally or on CI
+TBD
+
+# Using QT
+
+TBD
+
+# Testing
+
+Locally or on CI
+TBD
+
+# Formatting
+
+TBD
+
+# Static analyzers
+
+TBD
+
+# Code coverage
+
+TBD
+
+# Documentation
+
+Locally or on CI
+TBD
+say about table
+and insert meermanh js
+
+# Packaging
+
+TBD
+
+# Coming features
+
+Add Table
 
 - Quick Links in Readme
 
@@ -58,15 +108,13 @@ And any feedback is really appreciated!
 
 - CMake configuration
 
-- Doxygen support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
+- Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
 
-- Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally)
+- Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally) and Publish Test Results
 
 - Using GitHub Actions CI workflows for Windows Linux and MacOS
 
 # Coming features, next
-
-- Publish Test Results
 
 - Using QT (CI and Locally)
 
@@ -78,32 +126,7 @@ And any feedback is really appreciated!
 
 - Code coverage, enabled by using the ENABLE_CODE_COVERAGE option, through Codecov CI integration,
 
-- Package manager support, with Conan and Vcpkg, through their respective options
-
-- use Wix for win packages
-
-- resources
-
-# Installing
-Repo must be public to use badges 
-
-
-TBD
-
-# Building
-
-Locally or on CI
-TBD
-
-# Generating the documentation
-
-Locally or on CI
-TBD
-
-# Testing
-
-Locally or on CI
-TBD
+- Package manager support, with Conan and Vcpkg, through their respective options, use Wix for win packages
 
 # Contributing
 
