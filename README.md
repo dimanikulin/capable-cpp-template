@@ -33,7 +33,7 @@
 
 - [Description](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#description)
 - [Features](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#features)
-- [Installing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#installing)
+- [Initialization](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#initialization)
 - [Building](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#building)
 - [Using QT](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#using-qt)
 - [Testing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#testing)
@@ -59,19 +59,36 @@ And any feedback is really appreciated!
 
 # Features
 
-TODO Add Table here
+| # | Feature                 | CI support | Description    |
+| - | ------------------------|------------|:--------------:|
+|  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
+|  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams), TBD |
+|  | Building                 | Yes        | TBD, Use of Ccache to speed up the builds |
 
-- Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)
+# Initialization
 
-- MD Template for: Main README(Logo, Badges, Quick Links), TBD
+There are two options to install the project:
 
-- Use of Ccache to speed up the builds (CI)
+- clone if from [GitHub](https://github.com/dimanikulin/capable-cpp-template)
+- [use this repo as template](https://github.com/dimanikulin/capable-cpp-template/generate)
 
-# Installing
+If you would like to clone the repository please run:
 
-Repo must be public to use badges
+```bash
+git clone https://github.com/dimanikulin/capable-cpp-template/
+```
 
-TBD
+Then please update `"Project"` in `CMakeLists.txt`
+
+```cmake
+project(
+  "Project"
+  VERSION 0.1.0
+  LANGUAGES CXX
+)
+```
+
+with your project name.
 
 # Building
 
@@ -101,12 +118,25 @@ TBD
 
 # Documentation
 
+Please note for GitHub README.MD you can use *mermaid* to draw different diagrams like in the following example:
+
+```mermaid
+flowchart LR
+    B -->|Multimedia data| C(Online Multimedia IR system)
+    B -->|Multimedia data| D(Offline Multimedia IR system)
+    A(Photo Album owner) --> B(FVA Solution)
+    A(Photo Album owner) --> D1
+    A(Photo Album owner) --> D2
+    A(Photo Album owner) --> D3
+    D1(fa:fa-tablet Tablet) -->|Multimedia data| B(FVA Solution)
+    D2(fa:fa-phone Phone) -->|Multimedia data| B(FVA Solution)
+    D3(fa:fa-hdd-o External Disk) -->|Multimedia data| B(FVA Solution)
+```
+
+Repo must be public to use badges
 Locally or on CI
+
 TBD
-say about table
-and insert meermanh js
-main logo
-badges
 
 # Packaging
 
@@ -114,35 +144,22 @@ TBD
 
 # Coming features
 
-Add Table here
-
-- Using mermainjs to draw the diagramss in README
-
-- tables in README
-
 - build with Ninja and Cmake(CI)
-
 - CMake configuration
-
 - Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
-
 - Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally) and Publish Test Results
-
 - Using GitHub Actions CI workflows for Windows Linux and MacOS
 
 # Coming features, next
 
 - Using QT (CI and Locally)
-
 - Md Contributing Guideliness, Issues and Pull Requests,
-
 - An example of a Clang-Format config, inspired from the base Google model, with minor tweaks. This is aimed only as a starting point, as coding style is a subjective matter, everyone is free to either delete it (for the LLVM default) or supply their own alternative,
-
 - Static analyzers integration, with Clang-Tidy and Cppcheck(CI and Locally), the former being the default option,
-
 - Code coverage, enabled by using the ENABLE_CODE_COVERAGE option, through Codecov CI integration,
-
 - Package manager support, with Conan and Vcpkg, through their respective options, use Wix for win packages
+- use boold and italic
+- proofread
 
 # Contributing
 
