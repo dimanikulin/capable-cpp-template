@@ -63,7 +63,7 @@ And any feedback is really appreciated!
 | - | ------------------------|------------|:--------------:|
 |  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams), TBD |
-|  | Building                 | Yes        | TBD, Use of Ccache to speed up the builds |
+|  | Building                 | Yes        | Build with Ninja and CMake, Use of Ccache to speed up the builds |
 
 # Initialization
 
@@ -151,8 +151,6 @@ TBD
 
 # Coming features
 
-- build with Ninja and Cmake(CI)
-- CMake configuration
 - Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
 - Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally) and Publish Test Results
 - Using GitHub Actions CI workflows for Windows Linux and MacOS

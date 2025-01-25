@@ -2,9 +2,9 @@
 #define TEMPLATE_CLASS_H
 
 /*!
- * @brief Template class
+ * @brief Class of template project
  */
-class template_class
+class TemplateClass
 {
 private:
     /* data */
