@@ -64,7 +64,7 @@ And any feedback is really appreciated!
 |  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams) |
 |  | Building                 | Yes        | Build with Ninja and CMake, Use of Ccache to speed up the builds |
-|  | Testing                  | Yes        | TBD |
+|  | Testing                  | Yes        | Unit testing with GoogleTest, GoogleMock and CTests (with an option to enable testing) |
 |  | CI                       | Yes        | Using GitHub Actions CI workflows for Windows, Linux and MacOS operation systems |
 
 # Initialization
@@ -127,11 +127,9 @@ cmake --build .
 
 You can build it locally and on CI environment as well.
 
-# Using QT
-
-TBD
-
 # Testing
+
+option (BUILD_TESTS
 
 Locally or on CI
 TBD
@@ -158,10 +156,14 @@ TBD
 
 TBD
 
+# Using QT
+
+TBD
+
 # Coming features
 
 - Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
-- Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally) and Publish Test Results
+- Publish Test Results
 - use boold and italic
 - proofread
 
@@ -170,6 +172,7 @@ TBD
 - Using QT (CI and Locally)
 - Md Contributing Guideliness, Issues and Pull Requests,
 - An example of a Clang-Format config, inspired from the base Google model, with minor tweaks. This is aimed only as a starting point, as coding style is a subjective matter, everyone is free to either delete it (for the LLVM default) or supply their own alternative,
+- cmake formatting
 - Static analyzers integration, with Clang-Tidy and Cppcheck(CI and Locally), the former being the default option,
 - Code coverage, enabled by using the ENABLE_CODE_COVERAGE option, through Codecov CI integration,
 - Package manager support, with Conan and Vcpkg, through their respective options, use Wix for win packages
