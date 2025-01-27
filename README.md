@@ -64,6 +64,7 @@ And any feedback is really appreciated!
 |  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams) |
 |  | Building                 | Yes        | Build with Ninja and CMake, Use of Ccache to speed up the builds |
+|  | Testing                  | Yes        | TBD |
 |  | CI                       | Yes        | Using GitHub Actions CI workflows for Windows, Linux and MacOS operation systems |
 
 # Initialization
