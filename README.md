@@ -62,8 +62,9 @@ And any feedback is really appreciated!
 | # | Feature                 | CI support | Description    |
 | - | ------------------------|------------|:--------------:|
 |  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
-|  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams), TBD |
+|  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams) |
 |  | Building                 | Yes        | Build with Ninja and CMake, Use of Ccache to speed up the builds |
+|  | CI                       | Yes        | Using GitHub Actions CI workflows for Windows, Linux and MacOS operation systems |
 
 # Initialization
 
@@ -115,8 +116,15 @@ with your project name.
 
 # Building
 
-Locally or on CI
-TBD
+To build the project you will need to run **CMake** routine like
+to the the one below:
+
+```bash
+mkdir build/ && cd build/
+cmake --build . 
+```
+
+You can build it locally and on CI environment as well.
 
 # Using QT
 
@@ -153,7 +161,8 @@ TBD
 
 - Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
 - Unit testing support, through GoogleTest and CTests (with an option to enable GoogleMock) (CI and Locally) and Publish Test Results
-- Using GitHub Actions CI workflows for Windows Linux and MacOS
+- use boold and italic
+- proofread
 
 # Coming features, next
 
@@ -163,8 +172,6 @@ TBD
 - Static analyzers integration, with Clang-Tidy and Cppcheck(CI and Locally), the former being the default option,
 - Code coverage, enabled by using the ENABLE_CODE_COVERAGE option, through Codecov CI integration,
 - Package manager support, with Conan and Vcpkg, through their respective options, use Wix for win packages
-- use boold and italic
-- proofread
 
 # Contributing
 
