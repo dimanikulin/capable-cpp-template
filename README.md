@@ -129,10 +129,18 @@ You can build it locally and on CI environment as well.
 
 # Testing
 
-option (BUILD_TESTS
+Еhe template uses [Google Test](https://github.com/google/googletest/)
+for unit testing. Unit testing is enabled in the options by default (option BUILD_TESTS), by setting the
+`BUILD_TESTS`
+To start the tests you will need to use CTest from the build directory like in an example below:
 
-Locally or on CI
-TBD
+```bash
+cd build          
+ctest -C Release
+
+```
+
+You can run tests locally and on CI environment as well.
 
 # Formatting
 
