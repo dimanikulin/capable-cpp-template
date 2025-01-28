@@ -67,6 +67,8 @@ And any feedback is really appreciated!
 |  | Testing                  | Yes        | Unit testing with GoogleTest, GoogleMock and CTests (with an option to enable testing) |
 |  | CI                       | Yes        | Using GitHub Actions CI workflows for Windows, Linux and MacOS operation systems |
 
+What is important - you can disable the things you don't use.
+
 # Initialization
 
 There are two options to install the project:
