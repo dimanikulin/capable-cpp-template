@@ -5,6 +5,3 @@ target_include_directories(capable_template_app INTERFACE
 target_sources(capable_template_app INTERFACE 
         template_class.cpp
         )
-
-add_executable (capable_template_app main.cpp
-            )
