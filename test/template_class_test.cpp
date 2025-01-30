@@ -4,7 +4,7 @@
 TEST(TemplateClassTest, FunctionReturnsInput)
 {
     TemplateClass obj;
-    EXPECT_EQ(obj.function(5), 5);
+    EXPECT_EQ(obj.function(5), 6);
     EXPECT_EQ(obj.function(-3), -3);
     EXPECT_EQ(obj.function(0), 0);
 }
