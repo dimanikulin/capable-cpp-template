@@ -12,7 +12,8 @@
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/dimanikulin/capable-cpp-template/total">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date-pre/dimanikulin/capable-cpp-template">
   </br>
-  <a href="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml"><img src="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/main.yml/badge.svg?branch=master" alt="Tests"/></a>
+
+  <a href="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/multi-platform-build.yml"><img src="https://github.com/dimanikulin/capable-cpp-template/actions/workflows/multi-platform-build.yml/badge.svg?branch=master" alt="Main flow"/></a>
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/dimanikulin/capable-cpp-template">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dimanikulin/capable-cpp-template">
   </br>
@@ -49,13 +50,13 @@
 
 # Description
 
-A template for *C++* projects using *CI*, *Building*, *Testing*, *Formatting*, *Documenting* and more.
+A template for *C++* projects featuring CI, building, testing, formatting, documentation, and more.
 
-Aimed to use starting point with a big number of features with easy way to include or exclude a feature.
+Designed as a starting point with a wide range of features that can be easily included or excluded based on your needs.
 
-This is my *POV* on such a type of template, thus you might disagree with what I use and how I do things.
+This template reflects my personal approach, so you may have different preferences regarding its implementation.
 
-And any feedback is really appreciated!
+Any feedback is greatly appreciated!
 
 # Features
 
@@ -65,13 +66,13 @@ And any feedback is really appreciated!
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing) |
-|  | **CI**                       | Yes        | Usingn *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
+|  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 
 What is important - you can disable the things you don't use.
 
 # Initialization
 
-There are two options to install the project:
+There are two ways to install the project:
 
 - clone if from [GitHub](https://github.com/dimanikulin/capable-cpp-template)
 - [use this repo as template](https://github.com/dimanikulin/capable-cpp-template/generate)
@@ -84,11 +85,11 @@ git clone https://github.com/dimanikulin/capable-cpp-template/
 
 ## Readme.md
 
-You need to provide an *icon* located at *./resources/icons/main.png* if you wish to use the *icon* in this *README* file.
+You need to provide *an icon* at *./resources/icons/main.png* if you wish to include *an icon* in this *README* file.
 
-Then you need to updated "href" in badges to refer to your repository. But please notice repo must be public to use badges.
+Update the *href* in badges to point to your repository (note: the repository must be public to use badges)
 
-Also in GitHub README.MD you can use *mermaid* to draw different diagrams like in the following example:
+*GitHub* supports *Mermaid.js* for creating diagrams, such as:
 
 ```mermaid
 flowchart LR
@@ -119,22 +120,20 @@ with your project name.
 
 # Building
 
-To build the project you will need to run *CMake* routine like
-to the the one below:
+To build the project you will need to run *CMake* routine like to the one below:
 
 ```bash
 mkdir build/ && cd build/
 cmake --build . 
 ```
 
-You can build it locally and on *CI* environment as well.
+You can build it locally and in a *CI* environment.
 
 # Testing
 
-The template uses [Google Test](https://github.com/google/googletest/)
-for unit testing. Unit testing is enabled in the options by default (option BUILD_TESTS), by setting the
-`BUILD_TESTS`.
-To start the tests you will need to use *CTest* from the build directory like in an example below:
+The template uses [Google Test](https://github.com/google/googletest/) for unit testing.
+Unit testing is enabled by default via the `BUILD_TESTS` option.
+To run tests, use *CTest* from the build directory:
 
 ```bash
 cd build          
@@ -142,23 +141,24 @@ ctest -C Release
 
 ```
 
-You can run tests locally and on *CI* environment as well.
+Tests can be executed both locally and in a *CI* environment.
 
 # Coming features
 
-- Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration
-- Publish of documentation on git hub pages
-- Using QT (CI and Locally)
-- Md Contributing Guideliness, Issues and Pull Requests
-- Clang-Format config
-- Сmake formatting
-- Static analyzers
-- Code coverage
+- Documentation with Doxygen and README support (CI and local)
+- Publish documentation on GitHub Pages
+- QT support (CI and local)
+- Contribution guidelines, issue templates, and pull request templates
+- Clang-Format configuration
+- CMake formatting
+- Static analysis tools
+- Code coverage reports
 - Package manager support
-- use Wix for win packages
-- Publish Test Results + GoogleMock
-- gitignore
-- Python formatting and linter
+- Windows package creation using WiX
+- Publish test results + GoogleMock integration
+- Improved .gitignore
+- Python formatting and linting
+- Cross-compilation
 
 # Formatting
 
