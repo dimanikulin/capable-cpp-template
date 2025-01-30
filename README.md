@@ -49,23 +49,23 @@
 
 # Description
 
-A template for C++ projects using CI, Building, Testing, Formatting, Documenting and more.
+A template for *C++* projects using *CI*, *Building*, *Testing*, *Formatting*, *Documenting* and more.
 
 Aimed to use starting point with a big number of features with easy way to include or exclude a feature.
 
-This is my POV on such a type of template, thus you might disagree with what I use and how I do things.
+This is my *POV* on such a type of template, thus you might disagree with what I use and how I do things.
 
 And any feedback is really appreciated!
 
 # Features
 
-| # | Feature                 | CI support | Description    |
-| - | ------------------------|------------|:--------------:|
-|  | License                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
-|  | MD templates             | N/A        | Attractive main README (Logo, Badges, Quick Links, Tables, Diagrams) |
-|  | Building                 | Yes        | Build with Ninja and CMake, Use of Ccache to speed up the builds |
-|  | Testing                  | Yes        | Unit testing with GoogleTest and CTests (with an option to enable testing) |
-|  | CI                       | Yes        | Using GitHub Actions CI workflows for Windows, Linux and MacOS operation systems |
+| # | Feature                     | CI support | Description    |
+| - | ----------------------------|------------|:--------------:|
+|  | **License**                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
+|  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*) |
+|  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
+|  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing) |
+|  | **CI**                       | Yes        | Usingn *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 
 What is important - you can disable the things you don't use.
 
@@ -84,7 +84,7 @@ git clone https://github.com/dimanikulin/capable-cpp-template/
 
 ## Readme.md
 
-You need to provide an icon located at "./resources/icons/main.png" if you wish to use the icon in this README file.
+You need to provide an *icon* located at *./resources/icons/main.png* if you wish to use the *icon* in this *README* file.
 
 Then you need to updated "href" in badges to refer to your repository. But please notice repo must be public to use badges.
 
@@ -119,7 +119,7 @@ with your project name.
 
 # Building
 
-To build the project you will need to run **CMake** routine like
+To build the project you will need to run *CMake* routine like
 to the the one below:
 
 ```bash
@@ -127,14 +127,14 @@ mkdir build/ && cd build/
 cmake --build . 
 ```
 
-You can build it locally and on CI environment as well.
+You can build it locally and on *CI* environment as well.
 
 # Testing
 
-Еhe template uses [Google Test](https://github.com/google/googletest/)
+The template uses [Google Test](https://github.com/google/googletest/)
 for unit testing. Unit testing is enabled in the options by default (option BUILD_TESTS), by setting the
-`BUILD_TESTS`
-To start the tests you will need to use CTest from the build directory like in an example below:
+`BUILD_TESTS`.
+To start the tests you will need to use *CTest* from the build directory like in an example below:
 
 ```bash
 cd build          
@@ -142,19 +142,23 @@ ctest -C Release
 
 ```
 
-You can run tests locally and on CI environment as well.
-
-# Documentation
-
-Locally or on CI
-
-TBD
+You can run tests locally and on *CI* environment as well.
 
 # Coming features
 
-- Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration, Publish of documentation on git hub pages
-- use boold and italic
-- proofread
+- Documenting using Doxygen and Readme support (CI and Local) with Doxy configuration
+- Publish of documentation on git hub pages
+- Using QT (CI and Locally)
+- Md Contributing Guideliness, Issues and Pull Requests
+- Clang-Format config
+- Сmake formatting
+- Static analyzers
+- Code coverage
+- Package manager support
+- use Wix for win packages
+- Publish Test Results + GoogleMock
+- gitignore
+- Python formatting and linter
 
 # Formatting
 
@@ -176,17 +180,9 @@ TBD
 
 TBD
 
-# Coming features, next
+# Documentation
 
-- Using QT (CI and Locally)
-- Md Contributing Guideliness, Issues and Pull Requests,
-- Clang-Format config
-- cmake formatting
-- Static analyzers
-- Code coverage
-- Package manager support
-- use Wix for win packages
-- Publish Test Results + GoogleMock
+TBD
 
 # Contributing
 
