@@ -65,6 +65,7 @@ Any feedback is greatly appreciated!
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing) |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
+|  | **gitignore**                | N/A        | uses well know ignore file [from](https://github.com/github/gitignore) |
 
 What is important - you can disable the things you don't use.
 
