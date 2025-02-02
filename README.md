@@ -155,7 +155,6 @@ Tests can be executed both locally and in a *CI* environment.
 - Package manager support
 - Windows package creation using WiX
 - Publish test results + GoogleMock integration
-- Improved .gitignore
 - Python formatting and linting
 - Cross-compilation
 
