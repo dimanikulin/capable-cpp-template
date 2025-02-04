@@ -60,12 +60,12 @@ Any feedback is greatly appreciated!
 
 | # | Feature                     | CI support | Description    |
 | - | ----------------------------|------------|:--------------:|
-|  | **License**                  | N/A        |  Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
+|  | **License**                  | N/A        | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing) |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
-|  | **gitignore**                | N/A        | uses well know ignore file [from](https://github.com/github/gitignore) |
+|  | **gitignore**                | N/A        | Uses well known *ignore file* [from](https://github.com/github/gitignore) |
 
 What is important - you can disable the things you don't use.
 
@@ -177,6 +177,7 @@ TBD
 # Using QT
 
 TBD
+Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 
 # Documentation
 
@@ -193,3 +194,9 @@ TBD
 # License
 
 This project is licensed under the [Unlicense](https://unlicense.org/) - see the [LICENSE](https://github.com/dimanikulin/capable-cpp-template?tab=Unlicense-1-ov-file) file for details
+
+---
+
+<div>
+<img alt="Made with Markdown" src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg"/>
+</div>
