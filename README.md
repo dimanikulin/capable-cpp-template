@@ -63,7 +63,8 @@ Any feedback is greatly appreciated!
 |  | **License**                  | N/A        | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
-|  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing) |
+|  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
+|  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from](https://github.com/github/gitignore) |
 
@@ -142,6 +143,10 @@ ctest -C Release
 
 Tests can be executed both locally and in a *CI* environment.
 
+# Packaging
+
+TBD
+
 # Coming features
 
 - Documentation with Doxygen and README support (CI and local)
@@ -154,7 +159,7 @@ Tests can be executed both locally and in a *CI* environment.
 - Code coverage reports
 - Package manager support
 - Windows package creation using WiX
-- Publish test results + GoogleMock integration
+- GoogleMock integration
 - Python formatting and linting
 - Cross-compilation
 
@@ -167,10 +172,6 @@ TBD
 TBD
 
 # Code coverage
-
-TBD
-
-# Packaging
 
 TBD
 
