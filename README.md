@@ -66,7 +66,7 @@ Any feedback is greatly appreciated!
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
-|  | **gitignore**                | N/A        | Uses well known *ignore file* [from](https://github.com/github/gitignore) |
+|  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 
 What is important - you can disable the things you don't use.
 
@@ -149,25 +149,38 @@ TBD
 
 # Coming features
 
+- QT support (CI and local)
+- Windows package creation using WiX
 - Documentation with Doxygen and README support (CI and local)
 - Publish documentation on GitHub Pages
-- QT support (CI and local)
 - Contribution guidelines, issue templates, and pull request templates
 - Clang-Format configuration
-- CMake formatting
 - Static analysis tools
 - Code coverage reports
 - Package manager support
-- Windows package creation using WiX
+- CMake formatting
 - GoogleMock integration
-- Python formatting and linting
 - Cross-compilation
 
 # Formatting
 
+format:
+  stage: format
+  script:
+    - for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./build_rpi/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
+  allow_failure: false
+
 TBD
 
 # Static analyzers
+
+clang-tidy:
+  stage: clang-tidy
+  script:
+    - cmake -Bbuild_stat_analyser -H. -D CMAKE_EXPORT_COMPILE_COMMANDS=ON -D BUILD_TESTING=OFF
+    - cd build_stat_analyser
+    - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
+  allow_failure: true
 
 TBD
 
