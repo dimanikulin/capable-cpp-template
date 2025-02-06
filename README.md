@@ -45,6 +45,7 @@
 - [Contributing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#contributing)
 - [Author](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#author)
 - [License](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#license)
+- [References](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#references)
 
 # Description
 
@@ -61,8 +62,8 @@ Any feedback is greatly appreciated!
 | # | Feature                     | CI support | Description    |
 | - | ----------------------------|------------|:--------------:|
 |  | **License**                  | N/A        | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
-|  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*) |
-|  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the builds |
+|  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
+|  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
@@ -161,6 +162,8 @@ TBD
 - CMake formatting
 - GoogleMock integration
 - Cross-compilation
+- Versioning
+- Codes
 
 # Formatting
 
@@ -208,6 +211,15 @@ TBD
 # License
 
 This project is licensed under the [Unlicense](https://unlicense.org/) - see the [LICENSE](https://github.com/dimanikulin/capable-cpp-template?tab=Unlicense-1-ov-file) file for details
+
+# References
+
+| # | Name                 | Source                | Release date           |  Author                 | Description   |
+| - | ---------------------|---------------------- |----------------------- | ----------------------- |:-------------:|
+| 1 | gitignore repository |[GitHub Repo](https://github.com/github/gitignore)| TBD | TBD | TBD  |
+| 2 | QT Static analizer repository |[GitHub Repo](https://github.com/KDE/clazy)| TBD | TBD | TBD |
+| 3 | Cpp project template repository |[GitHub Repo](https://github.com/filipdutescu/modern-cpp-template)| TBD | TBD | TBD |
+| 4 | Google Tests repository |[GitHub Repo](https://github.com/google/googletest/)| TBD | TBD | TBD |
 
 ---
 
