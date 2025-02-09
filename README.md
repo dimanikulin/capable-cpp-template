@@ -68,6 +68,7 @@ Any feedback is greatly appreciated!
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
+|  | **QT**                       | Yes        | Installed on CI |
 
 What is important - you can disable the things you don't use.
 
@@ -144,6 +145,12 @@ ctest -C Release
 
 Tests can be executed both locally and in a *CI* environment.
 
+# Using QT
+
+Now supported on CI only.
+
+Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
+
 # Packaging
 
 TBD
@@ -167,15 +174,17 @@ TBD
 
 # Formatting
 
+TBD
+
 format:
   stage: format
   script:
     - for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./build_rpi/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
   allow_failure: false
 
-TBD
-
 # Static analyzers
+
+TBD
 
 clang-tidy:
   stage: clang-tidy
@@ -185,16 +194,9 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 
-TBD
-
 # Code coverage
 
 TBD
-
-# Using QT
-
-TBD
-Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 
 # Documentation
 
