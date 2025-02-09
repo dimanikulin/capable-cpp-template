@@ -126,13 +126,13 @@ jobs:
         restore-keys: |
           ${{ matrix.config.name }}-ccache-
 
-    - name: Download and install QT
-      uses: jurplel/install-qt-action@v3
-      with:
-        version:  ${{ env.QT_VERSION }}
-        target: 'desktop'
-        arch: 'win64_mingw81'
-        setup-python : 'false'
+    #- name: Download and install QT
+    #  uses: jurplel/install-qt-action@v3
+    #  with:
+    #    version:  ${{ env.QT_VERSION }}
+    #    target: 'desktop'
+    #    arch: 'win64_mingw81'
+    #    setup-python : 'false'
 
     - name: Configure make files by CMake
       shell: cmake -P {0}
