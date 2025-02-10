@@ -65,7 +65,7 @@ Any feedback is greatly appreciated!
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
-|  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub* |
+|  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by **WiX** |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                       | Yes        | Installed on CI |
@@ -158,7 +158,6 @@ TBD
 # Coming features
 
 - QT support (CI and local)
-- Windows package creation using WiX
 - Documentation with Doxygen and README support (CI and local)
 - Publish documentation on GitHub Pages
 - Contribution guidelines, issue templates, and pull request templates
