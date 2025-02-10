@@ -263,6 +263,22 @@ jobs:
         path: ./${{ matrix.config.artifact }}
         name: ${{ matrix.config.artifact }}
       
+    - name: Setup MSBuild
+      if: matrix.config.os == 'windows-latest'
+      uses: microsoft/setup-msbuild@v1.3.1
+
+    - name: MS package build
+      if: matrix.config.os == 'windows-latest'
+      run: >
+        msbuild ./FVASetupWin/FVASetupWin.wixproj
+
+    - name: Upload win pkg to git hub storage to use later
+      if: matrix.config.os == 'windows-latest'
+      uses: actions/upload-artifact@v4
+      with:
+        path: ./FVASetupWin/bin/FVASetupWin.msi
+        name: FVASetupWin.msi
+
     - name: Upload LastTest.log to git hub storage to use later
       if: matrix.config.os == 'windows-latest'
       uses: actions/upload-artifact@v4
