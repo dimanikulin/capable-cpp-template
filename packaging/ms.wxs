@@ -12,7 +12,7 @@
       <ComponentRef Id="icons" />
       <ComponentRef Id="mediaserviceFilesComponents" />
       <!--ComponentRef Id="scripts" /-->
-      <ComponentRef Id="files" />
+      <!--ComponentRef Id="files" /-->
       <ComponentRef Id="sqldriversComponents" />
     </Feature>
   </Product>
@@ -60,7 +60,7 @@
           </Component>
           </Directory>
 
-          <Component Id="files" Guid="af4356ff-56aa-4c7c-baca-cd1af6e51267">  
+          <!--Component Id="files" Guid="af4356ff-56aa-4c7c-baca-cd1af6e51267"-->  
             <!--File Id="viewer" Name="Viewer.exe" Source="..\instdir\bin\Viewer.exe" Vital="yes" KeyPath="no"/-->
 
             <!--File Id="Qt5Core" Name="Qt5Core.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Core.dll"  Vital="yes" KeyPath="no"/>
@@ -76,7 +76,7 @@
             <File Id="libstd" Name="libstdc++-6.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libstdc++-6.dll"  Vital="yes" KeyPath="no"/>
             <File Id="libwinpthread" Name="libwinpthread-1.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libwinpthread-1.dll"  Vital="yes" KeyPath="no"/-->
 
-          </Component>
+          <!--/Component-->
         </Directory>
       </Directory>
     </Directory>
