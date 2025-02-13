@@ -40,8 +40,8 @@
           <Directory Id="mediaservice" Name='mediaservice'>
           <Component Id="mediaserviceFilesComponents" Guid="1ea80614-bc07-4675-96a5-d418a1d67060">
             <CreateFolder />
-            <File Id="dsengine" Name="dsengine.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\mediaservice\dsengine.dll"  Vital="yes" KeyPath="no"/>
-            <File Id="qtmedia_audioengine" Name="qtmedia_audioengine.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\mediaservice\qtmedia_audioengine.dll"  Vital="yes" KeyPath="no"/>
+            <!--File Id="dsengine" Name="dsengine.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\mediaservice\dsengine.dll"  Vital="yes" KeyPath="no"/-->
+            <!--File Id="qtmedia_audioengine" Name="qtmedia_audioengine.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\mediaservice\qtmedia_audioengine.dll"  Vital="yes" KeyPath="no"/-->
             <!--File Id="wmfengine" Name="wmfengine.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\mediaservice\wmfengine.dll"  Vital="yes" KeyPath="no"/-->
            </Component>            
            </Directory>
@@ -49,32 +49,32 @@
           <Directory Id="platforms" Name='platforms'>
           <Component Id="platformsComponents" Guid="F1F0CD8C-9E9D-4A09-8FD9-BEC16D04EC5C">
             <CreateFolder />
-            <File Id="qwindows" Name="qwindows.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\platforms\qwindows.dll"  Vital="yes" KeyPath="no"/>
+            <!--File Id="qwindows" Name="qwindows.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\platforms\qwindows.dll"  Vital="yes" KeyPath="no"/-->
           </Component>
           </Directory>
 
           <Directory Id="sqldrivers" Name='sqldrivers'>
           <Component Id="sqldriversComponents" Guid="2F5B4920-D2F6-464D-A6CA-B4697AE50801">
             <CreateFolder />
-            <File Id="qsqlite" Name="qsqlite.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\sqldrivers\qsqlite.dll"  Vital="yes" KeyPath="no"/>
+            <!--File Id="qsqlite" Name="qsqlite.dll"  Source="$(var.Qt5_Dir)\mingw81_64\plugins\sqldrivers\qsqlite.dll"  Vital="yes" KeyPath="no"/-->
           </Component>
           </Directory>
 
           <Component Id="files" Guid="af4356ff-56aa-4c7c-baca-cd1af6e51267">  
             <!--File Id="viewer" Name="Viewer.exe" Source="..\instdir\bin\Viewer.exe" Vital="yes" KeyPath="no"/-->
 
-            <File Id="Qt5Core" Name="Qt5Core.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Core.dll"  Vital="yes" KeyPath="no"/>
+            <!--File Id="Qt5Core" Name="Qt5Core.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Core.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5Gui" Name="Qt5Gui.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Gui.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5Multimedia" Name="Qt5Multimedia.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Multimedia.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5MultimediaWidgets" Name="Qt5MultimediaWidgets.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5MultimediaWidgets.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5Network" Name="Qt5Network.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Network.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5OpenGL" Name="Qt5OpenGL.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5OpenGL.dll"  Vital="yes" KeyPath="no"/>
             <File Id="Qt5Widgets" Name="Qt5Widgets.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Widgets.dll"  Vital="yes" KeyPath="no"/>
-            <File Id="Qt5Sql" Name="Qt5Sql.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Sql.dll"  Vital="yes" KeyPath="no"/>
+            <File Id="Qt5Sql" Name="Qt5Sql.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\Qt5Sql.dll"  Vital="yes" KeyPath="no"/-->
 
-            <File Id="libgcc" Name="libgcc_s_seh-1.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libgcc_s_seh-1.dll"  Vital="yes" KeyPath="no"/>       
+            <!--File Id="libgcc" Name="libgcc_s_seh-1.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libgcc_s_seh-1.dll"  Vital="yes" KeyPath="no"/>       
             <File Id="libstd" Name="libstdc++-6.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libstdc++-6.dll"  Vital="yes" KeyPath="no"/>
-            <File Id="libwinpthread" Name="libwinpthread-1.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libwinpthread-1.dll"  Vital="yes" KeyPath="no"/>
+            <File Id="libwinpthread" Name="libwinpthread-1.dll"  Source="$(var.Qt5_Dir)\mingw81_64\bin\libwinpthread-1.dll"  Vital="yes" KeyPath="no"/-->
 
           </Component>
         </Directory>
