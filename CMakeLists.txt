@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 
 # Options
 option (BUILD_TESTS "Build the tests" ON)
+option (ENABLE_COVERAGE "Enable code coverage" ON)
 
 project(
   "Capable cpp template"
@@ -9,7 +10,25 @@ project(
   LANGUAGES CXX
 )
 
+message(STATUS "CMake version: ${CMAKE_VERSION}")
+message(STATUS "C++ standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "Project name: ${PROJECT_NAME}")
+message(STATUS "Project version: ${PROJECT_VERSION}")
+message(STATUS "Project source dir: ${PROJECT_SOURCE_DIR}")
+message(STATUS "Project binary dir: ${PROJECT_BINARY_DIR}")
+
+message(STATUS "Build tests: ${BUILD_TESTS}")
+message(STATUS "Enable coverage: ${ENABLE_COVERAGE}")
+
 add_subdirectory(src)
+
+# Code coverage
+if(ENABLE_COVERAGE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g -fprofile-arcs -ftest-coverage")
+    message("Code coverage is enabled and provided with GCC.")
+endif()
 
 # Add auto-tests
 if(BUILD_TESTS)

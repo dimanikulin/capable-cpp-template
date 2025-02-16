@@ -65,7 +65,8 @@ Any feedback is greatly appreciated!
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
-|  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by **WiX** |
+|  | **Coverage**                 | Yes        | Using *GCov* and *LCov* |
+|  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                       | Yes        | Installed on CI |
@@ -145,6 +146,11 @@ ctest -C Release
 
 Tests can be executed both locally and in a *CI* environment.
 
+# Code coverage
+
+Make sure to have the same version of g++ and gcov, otherwize you will see report creation issue. use *sudo update-alternatives* to fix that  
+TBD
+
 # Using QT
 
 Now supported on CI only.
@@ -163,8 +169,7 @@ TBD
 - Contribution guidelines, issue templates, and pull request templates
 - Clang-Format configuration
 - Static analysis tools
-- Code coverage reports
-- Package manager support
+- Package manager support for Mac and Linux
 - CMake formatting
 - GoogleMock integration
 - Cross-compilation
@@ -192,10 +197,6 @@ clang-tidy:
     - cd build_stat_analyser
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
-
-# Code coverage
-
-TBD
 
 # Documentation
 
