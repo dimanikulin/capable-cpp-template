@@ -262,7 +262,6 @@ jobs:
          echo "==================Filtering coverage====================================="
          lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
          '/usr/include/*' \
-         '/mnt/c/work/ipa/build/linux/*' \
          '*/boost/*'         
          echo "================================= Conversion coverage====================================="
          genhtml ./build/filtered_coverage.info --output-directory coverage_report
