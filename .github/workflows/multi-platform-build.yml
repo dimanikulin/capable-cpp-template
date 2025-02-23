@@ -261,8 +261,7 @@ jobs:
          lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch
          echo "==================Filtering coverage====================================="
          lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
-         '/usr/include/*' \
-         '*/boost/*'         
+         '/usr/include/*' 
          echo "================================= Conversion coverage====================================="
          genhtml ./build/filtered_coverage.info --output-directory coverage_report
          echo "=========================================================================================="
