@@ -254,6 +254,17 @@ jobs:
       if: matrix.config.os == 'ubuntu-latest'  
       run: |
          bash <(curl -s https://codecov.io/bash)
+         #apt update && apt install -y lcov
+         #echo "==================Run capture for coverage====================================="
+         #lcov --capture --directory ./build --output-file ./build/coverage.info
+         #echo "==================Filtering coverage====================================="
+         #lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
+         #'/usr/include/*' \
+         #'/mnt/c/work/ipa/build/linux/*' \
+         #'*/boost/*'         
+         #echo "================================= Conversion coverage====================================="
+         #genhtml ./build/filtered_coverage.info --output-directory coverage_report
+         #echo "=========================================================================================="
 
     - name: Install binaries to instdir and stripping them to make binaries smaller by CMake
       run: cmake --install build --prefix instdir --strip
