@@ -264,7 +264,7 @@ jobs:
          '/usr/include/*' \
          '/include/gtest/*' \
          '*/test/*' \
-         '/src/*' 
+         '/src/' 
          echo "================================= Conversion coverage====================================="
          genhtml ./build/filtered_coverage.info --output-directory coverage_report
          echo "=========================================================================================="
