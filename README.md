@@ -175,6 +175,7 @@ TBD
 - Cross-compilation
 - Versioning
 - Codes
+- MarkDown Lint
 
 # Formatting
 
