@@ -312,7 +312,7 @@ jobs:
     - name: Pack Coverage Info by 7zip
       if: matrix.config.os == 'ubuntu-latest'  
       working-directory: coverage_report
-      run: cmake -E tar --format=7zip .
+      run: cmake -E tar cfv ../coverage_report.zip --format=7zip .
 
     - name: Upload Coverage Info to github storage
       if: matrix.config.os == 'ubuntu-latest'  
