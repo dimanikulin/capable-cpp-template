@@ -258,7 +258,7 @@ jobs:
          sudo apt-get -y install lcov
          # sudo apt update && apt install -y lcov
          echo "==================Run capture for coverage====================================="
-         lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch
+         lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch --ignore-errors empty
          echo "==================Filtering coverage====================================="
          lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
          '/usr/include/*' \
