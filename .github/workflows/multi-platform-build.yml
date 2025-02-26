@@ -257,13 +257,13 @@ jobs:
          sudo apt-get update
          sudo apt-get -y install lcov
          echo "==================Run capture for coverage====================================="
-         lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch --ignore-errors empty
+         lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch
          echo "==================Filtering coverage====================================="
          lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
          '/usr/include/*' \
          '/include/gtest/*' \
          '*/test/*' \
-         '*/googletest/*' 
+         '*/googletest/*'
          echo "================================= Conversion coverage====================================="
          genhtml ./build/filtered_coverage.info --output-directory coverage_report
          echo "=========================================================================================="
