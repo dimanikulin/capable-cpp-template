@@ -65,7 +65,7 @@ Any feedback is greatly appreciated!
 |  | **MD templates**             | N/A        | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
-|  | **Coverage**                 | Yes        | Using *GCov* and *LCov* |
+|  | **Coverage**                 | Yes        | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
@@ -141,15 +141,40 @@ To run tests, use *CTest* from the build directory:
 ```bash
 cd build          
 ctest -C Release
-
 ```
 
 Tests can be executed both locally and in a *CI* environment.
 
 # Code coverage
 
-Make sure to have the same version of g++ and gcov, otherwize you will see report creation issue. use *sudo update-alternatives* to fix that  
-TBD
+Make sure to have the same version of g++ and gcov, otherwize you will see a report creation issue. Use *sudo update-alternatives* to fix that.
+
+First of all you will need to install coverage tool by 
+
+```bash
+sudo apt-get update
+sudo apt-get -y install lcov
+```
+
+Then you will need to run the capture for coverage
+
+```bash
+lcov --capture --directory ./build --output-file ./build/coverage.info --ignore-errors mismatch
+```
+
+Cause the coverage report must be clear it is suggested to run filtering
+
+```bash
+lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
+'/usr/include/*' \
+'/include/gtest/*' \
+'*/test/*' \
+'*/googletest/*'
+```
+Last but not least there will be translation coverage report to html format
+```bash
+genhtml ./build/filtered_coverage.info --output-directory coverage_report
+```
 
 # Using QT
 
@@ -159,7 +184,7 @@ Qt-oriented static code analyzer based on the Clang [framework](https://github.c
 
 # Packaging
 
-TBD
+Windows is supported now only by using Wix.
 
 # Coming features
 
