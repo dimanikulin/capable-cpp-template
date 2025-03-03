@@ -66,12 +66,13 @@ Any feedback is greatly appreciated!
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
 |  | **Coverage**                 | Yes        | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
+|  | **Formatting**               | TBD        | TBD |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                       | Yes        | Installed on CI |
 
-What is important - you can disable the things you don't use.
+What is important - you can easialy disable the things you don't use.
 
 # Initialization
 
@@ -186,6 +187,27 @@ Qt-oriented static code analyzer based on the Clang [framework](https://github.c
 
 Windows is supported now only by using Wix.
 
+# Formatting
+
+**Prerequisites** - *clang-format 17* or later and its configuration in file *.clang-format*
+
+Installing *clang-format*
+
+```bash
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 17
+sudo apt install clang-format-17
+rm ./llvm.sh
+```
+
+For *reformatting* please run following cmds:
+
+```bash
+find tests -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
+find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
+```
+
 # Coming features
 
 - QT support (CI and local)
@@ -201,16 +223,6 @@ Windows is supported now only by using Wix.
 - Versioning
 - Codes
 - MarkDown Lint
-
-# Formatting
-
-TBD
-
-format:
-  stage: format
-  script:
-    - for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./build_rpi/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
-  allow_failure: false
 
 # Static analyzers
 
