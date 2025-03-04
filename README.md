@@ -66,7 +66,7 @@ Any feedback is greatly appreciated!
 |  | **Building**                 | Yes        | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes        | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
 |  | **Coverage**                 | Yes        | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
-|  | **Formatting**               | TBD        | TBD |
+|  | **Formatting**               | TBD        | Usinf *clang-format* and Google code style *clang-format* configuration  |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
