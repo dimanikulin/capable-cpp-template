@@ -70,7 +70,7 @@ Any feedback is greatly appreciated!
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
-|  | **QT**                       | Yes        | Installed on CI |
+|  | **QT**                       | Yes        | Installed on CI only |
 
 What is important - you can easialy disable the things you don't use.
 
@@ -177,12 +177,6 @@ Last but not least there will be translation coverage report to html format
 genhtml ./build/filtered_coverage.info --output-directory coverage_report
 ```
 
-# Using QT
-
-Now supported on CI only.
-
-Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
-
 # Packaging
 
 Windows is supported now only by using Wix.
@@ -223,6 +217,12 @@ find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 - Versioning
 - Codes
 - MarkDown Lint
+
+# Using QT
+
+Now supported on CI only.
+
+Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 
 # Static analyzers
 
