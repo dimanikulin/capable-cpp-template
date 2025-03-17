@@ -4,8 +4,7 @@
 /*!
  * @brief Class of template project
  */
-class TemplateClass
-{
+class TemplateClass {
 private:
     /* data */
 public:
@@ -13,7 +12,6 @@ public:
      * @brief a function that returns the parameter
      */
     int function(int param);
-
 };
 
-#endif // TEMPLATE_CLASS_H
+#endif  // TEMPLATE_CLASS_H
