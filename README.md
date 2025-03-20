@@ -208,8 +208,8 @@ find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 - Documentation with Doxygen and README support (CI and local)
 - Publish documentation on GitHub Pages
 - Contribution guidelines, issue templates, and pull request templates
-- Clang-Format configuration
 - Static analysis tools
+- check Format on CI
 - Package manager support for Mac and Linux
 - CMake formatting
 - GoogleMock integration
