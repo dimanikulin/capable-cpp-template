@@ -42,7 +42,7 @@ jobs:
         run: cmake -E tar cfv ../docs.zip --format=7zip .
 
       - name: Upload docs artifact to git hub storage to use later
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           path: ./docs.zip
           name: docs.zip
