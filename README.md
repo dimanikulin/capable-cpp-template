@@ -68,6 +68,7 @@ Any feedback is greatly appreciated!
 |  | **Coverage**                 | Yes        | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Formatting**               | TBD        | Usinf *clang-format* and Google code style *clang-format* configuration  |
 |  | **Packaging**                | Yes        | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
+|  | **Documentation**            | Yes        | Using *Doxygen*, Publishing documentation on GitHub Pages |
 |  | **CI**                       | Yes        | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**                | N/A        | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                       | Yes        | Installed on CI only |
@@ -202,11 +203,19 @@ find tests -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 ```
 
+# Documentation
+
+Please see *releaseDocs.yml* for more details
+
+# Using QT
+
+Now supported on CI only.
+
+Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
+
 # Coming features
 
 - QT support (CI and local)
-- Documentation with Doxygen and README support (CI and local)
-- Publish documentation on GitHub Pages
 - Contribution guidelines, issue templates, and pull request templates
 - Static analysis tools
 - check Format on CI
@@ -217,12 +226,6 @@ find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 - Versioning
 - Codes
 - MarkDown Lint
-
-# Using QT
-
-Now supported on CI only.
-
-Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 
 # Static analyzers
 
@@ -236,9 +239,6 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 
-# Documentation
-
-TBD
 
 # Contributing
 
