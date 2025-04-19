@@ -211,8 +211,6 @@ Please see *releaseDocs.yml* for more details
 
 Now supported on CI only.
 
-Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
-
 # Coming features
 
 - QT support (CI and local)
@@ -226,6 +224,9 @@ Qt-oriented static code analyzer based on the Clang [framework](https://github.c
 - Versioning
 - Codes
 - MarkDown Lint
+- Dockerfile
+- Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
+- find merging symbols like "<<<"
 
 # Static analyzers
 
