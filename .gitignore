@@ -48,6 +48,3 @@ CMakeUserPresets.json
 
 # Coverage report
 /coverage_report
-
-# not used code for now
-/!CodeChecks/
