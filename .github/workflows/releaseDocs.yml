@@ -31,12 +31,6 @@ jobs:
            doxyfile-path: './doxy.cfg'
            enable-latex: true
 
-      - name: Publish of documentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output/html
-
       - name: Pack the docs by 7zip
         working-directory: ./output/
         run: cmake -E tar cfv ../docs.zip --format=7zip .
@@ -46,3 +40,11 @@ jobs:
         with:
           path: ./docs.zip
           name: docs.zip
+          
+      # TODO: uncomment if you want to publish the documentation on gh-pages
+      #- name: Publish of documentation
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./output/html
+  
