@@ -227,6 +227,10 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 ```
+# Code checks
+## Сheck for boilerplate
+You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
+Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
 
 # Coming features
 
