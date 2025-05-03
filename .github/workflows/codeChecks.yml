@@ -42,4 +42,3 @@ jobs:
           rm ./llvm.sh
           echo "==================Running clang-format====================================="          
           for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
-        allow_failure: false
