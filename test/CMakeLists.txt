@@ -3,7 +3,7 @@ add_executable (capable_template_app_test
 )
 
 target_link_libraries(capable_template_app_test 
-			PUBLIC gtest gtest_main
+			PUBLIC gtest gtest_main gmock
                     	PUBLIC capable_template
 ) 
 
