@@ -64,6 +64,7 @@ Any feedback is greatly appreciated!
 |  | **License**                  | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**             | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**          | Yes | By *CppCheck* GitHub Action |
+|  | **Code Checks**              | Yes | By Python scripts |
 |  | **Building**                 | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**                  | Yes | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
 |  | **Coverage**                 | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
@@ -227,15 +228,9 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 ```
-# Code checks
-## Сheck for boilerplate
-You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
-Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
-
 # Coming features
 
 - QT support (CI and local)
-- Contribution guidelines, issue templates, and pull request templates
 - check Format on CI
 - Package manager support for Mac and Linux
 - CMake formatting
@@ -248,6 +243,13 @@ Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - find merging symbols like "<<<"
 - clang-tidy
+- code checks
+
+# Code checks
+## Сheck for boilerplate
+You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
+Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
+
 
 # Contributing
 
