@@ -59,21 +59,21 @@ Any feedback is greatly appreciated!
 
 # Features
 
-| # | Feature                     | CI  | Description    |
-| - | ----------------------------|-----|:--------------:|
-|  | **License**                  | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
-|  | **MD templates**             | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
-|  | **Static analysis**          | Yes | By *CppCheck* GitHub Action |
-|  | **Code Checks**              | Yes | By Python scripts |
-|  | **Building**                 | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
-|  | **Testing**                  | Yes | Unit testing with *GoogleTest* and *CTests* (with an option to enable testing), uploading test results to *GitHub* |
-|  | **Coverage**                 | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
-|  | **Formatting**               | TBD | Usinf *clang-format* and Google code style *clang-format* configuration  |
-|  | **Packaging**                | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
-|  | **Documentation**            | Yes | Using *Doxygen*, Publishing documentation on GitHub Pages |
-|  | **CI**                       | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
-|  | **gitignore**                | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
-|  | **QT**                       | Yes | Installed on CI only |
+| # | Feature                | CI  | Description    |
+| - | -----------------------|-----|:--------------:|
+|  | **License**             | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
+|  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
+|  | **Static analysis**     | Yes | By *CppCheck* GitHub Action |
+|  | **Code Checks**         | Yes | By Python scripts: TBD |
+|  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
+|  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
+|  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
+|  | **Formatting**          | Yes | Using *clang-format* and Google code style configuration - to format C and CPP code  |
+|  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
+|  | **Documentation**       | Yes | Using *Doxygen*, Publishing documentation on GitHub Pages |
+|  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
+|  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
+|  | **QT**                  | Yes | Installed on CI only |
 
 What is important - you can easialy disable the things you don't use.
 
@@ -231,10 +231,8 @@ clang-tidy:
 # Coming features
 
 - QT support (CI and local)
-- check Format on CI
 - Package manager support for Mac and Linux
 - CMake formatting
-- GoogleMock integration
 - Cross-compilation
 - Versioning
 - Codes

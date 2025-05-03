@@ -32,3 +32,14 @@ jobs:
         with:
           path: ./cppcheck_report.txt
           name: cppcheck_report.txt
+      - name: Format check
+        run: |
+          echo "==================Installing clang-format====================================="
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 17
+          sudo apt install clang-format-17
+          rm ./llvm.sh
+          echo "==================Running clang-format====================================="          
+          for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
+        allow_failure: false
