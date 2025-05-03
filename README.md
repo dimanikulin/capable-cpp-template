@@ -244,7 +244,7 @@ clang-tidy:
 - code checks
 
 # Code checks
-## Сheck for boilerplate
+## Check for boilerplate
 You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
 Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
 
