@@ -233,7 +233,6 @@ clang-tidy:
 - QT support (CI and local)
 - Package manager support for Mac and Linux
 - CMake formatting
-- Cross-compilation
 - Versioning
 - Codes
 - MarkDown Lint
