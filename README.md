@@ -70,7 +70,7 @@ Any feedback is greatly appreciated!
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Formatting**          | Yes | Using *clang-format* and Google code style configuration - to format C and CPP code  |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
-|  | **Documentation**       | Yes | Using *Doxygen*, Publishing documentation on GitHub Pages |
+|  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                  | Yes | Installed on CI only |
@@ -209,6 +209,11 @@ find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 
 Please see *releaseDocs.yml* for more details
 
+You can add source view with help of [gitdiagram](https://gitdiagram.com/) 
+
+<img src="./resources/sourceView.png" alt="source view">
+
+
 # Using QT
 
 Now supported on CI only.
@@ -241,6 +246,7 @@ clang-tidy:
 - find merging symbols like "<<<"
 - clang-tidy
 - code checks
+- Publishing documentation on GitHub Pages
 
 # Code checks
 ## Check for boilerplate
@@ -268,6 +274,7 @@ This project is licensed under the [Unlicense](https://unlicense.org/) - see the
 | 2 | QT Static analizer repository |[GitHub Repo](https://github.com/KDE/clazy)| TBD | TBD | TBD |
 | 3 | Cpp project template repository |[GitHub Repo](https://github.com/filipdutescu/modern-cpp-template)| TBD | TBD | TBD |
 | 4 | Google Tests repository |[GitHub Repo](https://github.com/google/googletest/)| TBD | TBD | TBD |
+| 5 | Tool to create source view for your git repo | [gitdiagram](https://gitdiagram.com/) | TBD | TBD | TBD |
 
 ---
 
