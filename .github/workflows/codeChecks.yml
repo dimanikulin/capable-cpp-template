@@ -42,3 +42,7 @@ jobs:
           rm ./llvm.sh
           echo "==================Running clang-format====================================="          
           for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
+      - name: Check for merge conflicts symbols
+        # This step checks for merge conflicts in the codebase
+        run: |
+          python3 ./scripts/check_merge_conflicts.py
