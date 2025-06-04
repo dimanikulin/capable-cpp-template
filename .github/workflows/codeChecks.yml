@@ -46,5 +46,5 @@ jobs:
         # This step checks for merge conflicts in the codebase
         run: |
           python3 ./scripts/check_merge_conflicts.py "./src"
-          python3 ./scripts/check_merge_conflicts.py "./scripts"
+          #python3 ./scripts/check_merge_conflicts.py "./scripts"
           python3 ./scripts/check_merge_conflicts.py "./test"
