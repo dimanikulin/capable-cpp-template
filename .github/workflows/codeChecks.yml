@@ -45,4 +45,4 @@ jobs:
       - name: Check for merge conflicts symbols
         # This step checks for merge conflicts in the codebase
         run: |
-          python3 ./scripts/check_merge_conflicts.py
+          python3 ./scripts/check_merge_conflicts.py "."
