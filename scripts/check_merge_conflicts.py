@@ -54,8 +54,8 @@ if __name__ == "__main__":
                     print(f"  Line {line[0]}: {line[1]} -> {line[2]}")
 
     if conflict_detected:
-        print("\n❌ Merge conflict markers found.")
+        print("\nX Merge conflict markers found.")
         sys.exit(1)
     else:
-        print("✅ No merge conflicts found.")
+        print("\nV No merge conflicts found.")
         sys.exit(0)
