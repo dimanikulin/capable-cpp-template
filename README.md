@@ -64,7 +64,7 @@ Any feedback is greatly appreciated!
 |  | **License**             | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**     | Yes | By *CppCheck* GitHub Action |
-|  | **Code Checks**         | Yes | By Python scripts: TBD |
+|  | **Code Checks**         | Yes | By Python scripts: Merge conflict check |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
@@ -233,6 +233,11 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 ```
+# Code checks
+## Merge conflict
+This script scans files in a directory for Git merge conflict markers like "<<<"
+It can be used to check for unresolved merge conflicts in code files. 
+
 # Coming features
 
 - QT support (CI and local)
@@ -243,12 +248,11 @@ clang-tidy:
 - MarkDown Lint
 - Dockerfile
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
-- find merging symbols like "<<<"
 - clang-tidy
 - code checks
 - Publishing documentation on GitHub Pages
 
-# Code checks
+
 ## Check for boilerplate
 You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
 Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
@@ -275,6 +279,7 @@ This project is licensed under the [Unlicense](https://unlicense.org/) - see the
 | 3 | Cpp project template repository |[GitHub Repo](https://github.com/filipdutescu/modern-cpp-template)| TBD | TBD | TBD |
 | 4 | Google Tests repository |[GitHub Repo](https://github.com/google/googletest/)| TBD | TBD | TBD |
 | 5 | Tool to create source view for your git repo | [gitdiagram](https://gitdiagram.com/) | TBD | TBD | TBD |
+| 6 | Markdown Poster | [Markdown Poster](https://readpo.com/en/poster)  |  | Edit using Markdown, flexible and real-time preview, supports export as images.Supports multiple ReadPo poster templates and themes. Provides a free poster rendering API that can be integrated into your website, Bot, ChatGPT, Coze, and other platforms. |
 
 ---
 
