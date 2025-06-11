@@ -64,7 +64,7 @@ Any feedback is greatly appreciated!
 |  | **License**             | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**     | Yes | By *CppCheck* GitHub Action |
-|  | **Code Checks**         | Yes | By Python scripts: Merge conflict check |
+|  | **Code Checks**         | Yes | By Python scripts: suspect words |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
@@ -234,12 +234,13 @@ clang-tidy:
   allow_failure: true
 ```
 # Code checks
-## Merge conflict
-This script scans files in a directory for Git merge conflict markers like "<<<"
-It can be used to check for unresolved merge conflicts in code files. 
+## Suspect words
+This [script](./scripts/check_suspect_words.py) scans files in a directory for suspect words, for example foor Git merge conflict markers like "<<<"
+It can be used to check for any suspect words in code files. 
 
 # Coming features
 
+- code checks
 - QT support (CI and local)
 - Package manager support for Mac and Linux
 - CMake formatting
@@ -249,9 +250,8 @@ It can be used to check for unresolved merge conflicts in code files.
 - Dockerfile
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - clang-tidy
-- code checks
 - Publishing documentation on GitHub Pages
-
+- format fix
 
 ## Check for boilerplate
 You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.

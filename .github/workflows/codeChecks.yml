@@ -42,9 +42,9 @@ jobs:
           rm ./llvm.sh
           echo "==================Running clang-format====================================="          
           for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
-      - name: Check for merge conflicts symbols
-        # This step checks for merge conflicts in the codebase
+      - name: Check for suspect words
+        # This step checks for suspect words in the codebase
         run: |
-          python3 ./scripts/check_merge_conflicts.py "./src"
-          #python3 ./scripts/check_merge_conflicts.py "./scripts"
-          python3 ./scripts/check_merge_conflicts.py "./test"
+          python3 ./scripts/check_suspect_words.py "./src"
+          #python3 ./scripts/check_suspect_words.py "./scripts"
+          python3 ./scripts/check_suspect_words.py "./test"
