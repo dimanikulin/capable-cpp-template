@@ -6,12 +6,17 @@
 
 ## check_suspect_words.py
 
-- Scan all files in current directory
+- Create marker file with suspect words
 ```bash
-python check_suspect_words.py .
+echo -e "<<<<<<<\n=======\n>>>>>>>" > markers.txt
 ```
 
+- Scan all files in current directory
 ```bash
-- Scan only `.py` and `.cpp` files in a folder
-python check_suspect_words.py ./src --ext .py .cpp
+python check_suspect_words.py . --marker-file markers.txt --ext .py .cpp
+```
+
+- Scan only `.py` and `.cpp` files in a src folder
+```bash
+python check_suspect_words.py ./src --marker-file markers.txt --ext .py .cpp
 ```
