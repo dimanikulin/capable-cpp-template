@@ -12,6 +12,11 @@ public:
      * @brief a function that returns the parameter
      */
     int function(int param);
+
+    /*!
+     * @brief a function that returns the parameter
+     */
+    bool function2();
 };
 
 #endif  // TEMPLATE_CLASS_H

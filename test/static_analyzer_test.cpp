@@ -1,11 +1,14 @@
-bool aFunction() {
+#include "template_class.h"
+
+bool aFunction() {    
     // This function does nothing.
     return true; // Returns true.
 }
 
 bool mainFunction() {
     while (true) {
-        if (!aFunction()) {
+        TemplateClass obj;
+        if (!obj.function2()) {
             return false;
         }
 
