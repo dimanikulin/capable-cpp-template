@@ -1,6 +1,6 @@
 #include "template_class.h"
 
-int TemplateClass::function(int param) { return param; }
+int TemplateClass::function(int param) { return (param + 1); }
 
 bool TemplateClass::function2() {
     if (function(0) == 0) 
