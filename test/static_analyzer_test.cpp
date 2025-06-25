@@ -3,5 +3,13 @@ bool aFunction() {
     return true; // Returns true.
 }
 
+bool mainFunction() {
+    while (true) {
+        if (!aFunction()) {
+            return false;
+        }
 
+        // do something
+    }
+}
 
