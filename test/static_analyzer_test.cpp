@@ -16,3 +16,9 @@ bool mainFunction() {
     }
 }
 
+bool mainFunction2() {
+    int i = 0, j = 0;
+    while (i < 10) {
+      ++j;
+    }
+}
