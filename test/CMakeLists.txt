@@ -1,5 +1,6 @@
 add_executable (capable_template_app_test
-    template_class_test.cpp
+    template_class_test.cpp 
+	static_analyzer_test.cpp
 )
 
 target_link_libraries(capable_template_app_test 
