@@ -1,8 +1,8 @@
 #include "template_class.h"
 
-bool aFunction() {    
+bool aFunction() {
     // This function does nothing.
-    return true; // Returns true.
+    return true;  // Returns true.
 }
 
 bool mainFunction() {
@@ -19,6 +19,6 @@ bool mainFunction() {
 bool mainFunction2() {
     int i = 0, j = 0;
     while (i < 10) {
-      ++j;
+        ++j;
     }
 }
