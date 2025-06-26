@@ -68,7 +68,7 @@ Any feedback is greatly appreciated!
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
-|  | **Formatting**          | Yes | Using *clang-format* and Google code style configuration - to format C and CPP code  |
+|  | **Formatting**          | Yes | Using *clang-format* and Google code style cfg - to format C and CPP code, format fix script  |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
@@ -205,6 +205,8 @@ find tests -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 ```
 
+Please see it [here](./scripts/format_fix.sh)
+
 # Documentation
 
 Please see *releaseDocs.yml* for more details
@@ -233,6 +235,10 @@ clang-tidy:
     - run-clang-tidy-17 -warnings-as-errors='*' -config-file ../.clang-tidy
   allow_failure: true
 ```
+## Test case for endless loop
+
+Please see it [here](./test/static_analyzer_test.cpp)
+
 # Code checks
 ## Suspect words
 This [script](./scripts/check_suspect_words.py) scans files in a directory for suspect words, for example foor Git merge conflict markers like "<<<"
@@ -251,7 +257,6 @@ It can be used to check for any suspect words in code files.
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - clang-tidy
 - Publishing documentation on GitHub Pages
-- format fix
 
 ## Check for boilerplate
 You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
