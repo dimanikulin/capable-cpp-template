@@ -48,12 +48,12 @@ jobs:
           clang-tidy ./src/*.h -checks='*' >> ./clang-tidy-report.txt
           clang-tidy ./test/*.cpp -checks='*' >> ./clang-tidy-report.txt
           clang-tidy ./test/*.h -checks='*' >> ./clang-tidy-report.txt
-      -name: Upload clang-tidy Report to git hub storage to use later
+      - name: Upload clang-tidy Report to git hub storage to use later
           uses: actions/upload-artifact@v4
           with:
             path: ./clang-tidy-report.txt
             name: clang-tidy-report.txt
-            
+
       - name: Format check
         run: |
           echo "==================Installing clang-format====================================="
