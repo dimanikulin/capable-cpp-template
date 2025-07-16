@@ -63,7 +63,7 @@ Any feedback is greatly appreciated!
 | - | -----------------------|-----|:--------------:|
 |  | **License**             | N/A | Fully open license. The project is licensed under the [Unlicense](https://unlicense.org/)|
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
-|  | **Static analysis**     | Yes | By *CppCheck* GitHub Action |
+|  | **Static analysis**     | Yes | By *CppCheck* GitHub Action and *clang-tidy* |
 |  | **Code Checks**         | Yes | By Python scripts: suspect words |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
@@ -247,15 +247,14 @@ It can be used to check for any suspect words in code files.
 # Coming features
 
 - code checks
-- QT support (CI and local)
 - Package manager support for Mac and Linux
 - CMake formatting
 - Versioning
 - Codes
 - MarkDown Lint
 - Dockerfile
+- QT support (CI and local)
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
-- clang-tidy
 - Publishing documentation on GitHub Pages
 
 ## Check for boilerplate

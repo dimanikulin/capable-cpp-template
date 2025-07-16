@@ -32,6 +32,19 @@ jobs:
         with:
           path: ./cppcheck_report.txt
           name: cppcheck_report.txt
+      - name: clang-tidy check
+        run: |
+          echo "==================Installing clang-tidy====================================="
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 17
+          sudo apt install clang-tidy-17
+          rm ./llvm.sh
+          echo "==================Running clang-tidy====================================="
+          clang-tidy ./src/*.cpp -checks='*'
+          clang-tidy ./src/*.h -checks='*'
+          clang-tidy ./test/*.cpp -checks='*'
+          clang-tidy ./test/*.h -checks='*'
       - name: Format check
         run: |
           echo "==================Installing clang-format====================================="
