@@ -63,7 +63,7 @@ jobs:
           sudo apt install clang-format-17
           rm ./llvm.sh
           echo "==================Running clang-format====================================="          
-          for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./CMakeFiles/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
+          for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./CMakeFiles/* -not -path "./_deps/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
       - name: Check for suspect words
         # This step checks for suspect words in the codebase
         run: |
