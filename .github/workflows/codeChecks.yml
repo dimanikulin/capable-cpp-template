@@ -67,6 +67,6 @@ jobs:
       - name: Check for suspect words
         # This step checks for suspect words in the codebase
         run: |
-          python3 ./scripts/check_suspect_words.py "./src" --marker-file ./scripts/check_markers.txt
-          #python3 ./scripts/check_suspect_words.py "./scripts" --marker-file ./scripts/check_markers.txt
-          python3 ./scripts/check_suspect_words.py "./test" --marker-file ./scripts/check_markers.txt
+          python3 ./scripts/check_suspect_words.py "./src" --marker-file ./scripts/check_suspect_words.txt
+          #python3 ./scripts/check_suspect_words.py "./scripts" --marker-file ./scripts/check_suspect_words.txt
+          python3 ./scripts/check_suspect_words.py "./test" --marker-file ./scripts/check_suspect_words.txt
