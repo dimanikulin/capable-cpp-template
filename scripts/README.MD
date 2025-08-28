@@ -2,7 +2,7 @@
 
 ## format_fix.sh
 
- - TODO
+ - It fixes the code formatting according to *.clang-format* format configuration in the root dir.
 
 ## check_suspect_words.py
 
