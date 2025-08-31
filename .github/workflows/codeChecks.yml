@@ -48,6 +48,7 @@ jobs:
           clang-tidy ./src/*.h -checks='*' >> ./clang-tidy-report.txt
           clang-tidy ./test/*.cpp -checks='*' >> ./clang-tidy-report.txt
           #clang-tidy ./test/*.h -checks='*' >> ./clang-tidy-report.txt
+          
       - name: Upload clang-tidy Report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
@@ -64,9 +65,16 @@ jobs:
           rm ./llvm.sh
           echo "==================Running clang-format====================================="          
           for i in $(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path "./build/*" -not -path "./CMakeFiles/*" -not -path "./_deps/*"); do if ! clang-format-17 -style=file --dry-run --Werror "$i"; then exit 1; fi done
+
       - name: Check for suspect words
         # This step checks for suspect words in the codebase
         run: |
           python3 ./scripts/check_suspect_words.py "./src" --marker-file ./scripts/check_suspect_words.txt
           #python3 ./scripts/check_suspect_words.py "./scripts" --marker-file ./scripts/check_suspect_words.txt
           python3 ./scripts/check_suspect_words.py "./test" --marker-file ./scripts/check_suspect_words.txt
+
+      - name: Check for boilerplate code
+        # This step checks for boilerplate code in the codebase
+        run: |
+          python3 ./scripts/check_boilerplate.py "./src" --marker-file ./scripts/check_boilerplate.txt
+          python3 ./scripts/check_boilerplate.py "./test" --marker-file ./scripts/check_boilerplate.txt
