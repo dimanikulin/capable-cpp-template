@@ -68,8 +68,8 @@ if __name__ == "__main__":
                     print(f"  Line {line[0]}: {line[1]} -> {line[2]}")
 
     if detected:
-        print("\Suspect words/markers found.")
+        print("Suspect words/markers found.")
         sys.exit(1)
     else:
-        print("No Suspect words/markers found.")
+        print("No suspect words/markers found.")
         sys.exit(0)
