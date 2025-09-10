@@ -1,14 +1,26 @@
 #!/usr/bin/env python3
 import argparse
 import os
+import re
 
 def read_file(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.readlines()
 
+def normalize_boilerplate(boilerplate_lines):
+    """Convert boilerplate lines into regex patterns (supporting {YEAR})."""
+    patterns = []
+    for line in boilerplate_lines:
+        # Escape everything for literal match
+        pattern = re.escape(line.strip())
+        # Replace escaped placeholder with regex
+        pattern = pattern.replace(r"\{YEAR\}", r"\d{4}")
+        patterns.append(re.compile(f"^{pattern}$"))
+    return patterns
+
 def check_boilerplate(src_dir, boilerplate_path, exts=None):
     boilerplate_lines = read_file(boilerplate_path)
-    boilerplate_stripped = [line.strip() for line in boilerplate_lines]
+    boilerplate_patterns = normalize_boilerplate(boilerplate_lines)
 
     results = []
     for root, _, files in os.walk(src_dir):
@@ -18,12 +30,15 @@ def check_boilerplate(src_dir, boilerplate_path, exts=None):
             file_path = os.path.join(root, file)
             try:
                 file_lines = read_file(file_path)
-                file_head = [line.strip() for line in file_lines[:len(boilerplate_lines)]]
+                file_head = [line.strip() for line in file_lines[:len(boilerplate_patterns)]]
 
-                if file_head == boilerplate_stripped:
-                    results.append((file_path, True))
-                else:
-                    results.append((file_path, False))
+                ok = True
+                for line, pattern in zip(file_head, boilerplate_patterns):
+                    if not pattern.match(line):
+                        ok = False
+                        break
+
+                results.append((file_path, ok))
             except Exception as e:
                 results.append((file_path, f"Error: {e}"))
     return results
