@@ -35,3 +35,28 @@ python check_boilerplate.py --src ./my_project --boilerplate ./boilerplate.txt -
 boilerplate.txt = your reference boilerplate (e.g., license header).
 
 It will check the first N lines of each file (where N is the number of lines in the boilerplate).
+
+## check_file_size.py
+It 
+- Walks the directory recursively.
+- For each file → count code lines.
+- Compares with the max allowed.
+
+Collects:
+- number of files within limit
+- number of files exceeding limit
+
+At the end → prints statistics + exit non-zero if any failed.
+
+### Usage
+python count_code_lines.py <dir> <max_lines> [comment_symbol] [ext1 ext2 ...]
+
+Check all Python files under src/, max 500 lines allowed:
+```bash
+python count_code_lines.py src 500 "#" .py
+```
+
+Check all C++ files under project/, max 2000 lines allowed:
+```bash
+python count_code_lines.py project 2000 "//" .cpp .h
+```
