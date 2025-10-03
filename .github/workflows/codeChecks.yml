@@ -89,3 +89,15 @@ jobs:
         with:
           path: ./boilerplate-report.txt
           name: boilerplate-report.txt
+
+      - name: Check for large files
+        # This step checks for large files in the codebase
+        run: |
+          python3 ./scripts/count_code_lines.py "./src" --max-lines 500 "//" .cpp .h > ./file-size-report.txt
+          #python3 ./scripts/count_code_lines.py "./scripts" --max-lines 500 "#" .py >> ./file-size-report.txt
+          python3 ./scripts/count_code_lines.py "./test" --max-lines 500 "//" .cpp .h >> ./file-size-report.txt
+      - name: Upload file size report to git hub storage to use later
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./file-size-report.txt
+          name: file-size-report.txt
