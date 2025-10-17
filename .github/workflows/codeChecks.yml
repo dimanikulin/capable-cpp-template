@@ -93,9 +93,9 @@ jobs:
       - name: Check for large files
         # This step checks for large files in the codebase
         run: |
-          python3 ./scripts/check_file_size.py "./src" --max-lines 500 "//" .cpp .h > ./file-size-report.txt
-          #python3 ./scripts/check_file_size.py "./scripts" --max-lines 500 "#" .py >> ./file-size-report.txt
-          python3 ./scripts/check_file_size.py "./test" --max-lines 500 "//" .cpp .h >> ./file-size-report.txt
+          python3 ./scripts/check_file_size.py "./src" 500 "//" .cpp .h > ./file-size-report.txt
+          #python3 ./scripts/check_file_size.py "./scripts" 500 "#" .py >> ./file-size-report.txt
+          python3 ./scripts/check_file_size.py "./test" 500 "//" .cpp .h >> ./file-size-report.txt
       - name: Upload file size report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
