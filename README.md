@@ -245,9 +245,17 @@ Please see it [here](./test/static_analyzer_test.cpp)
 This [script](./scripts/check_suspect_words.py) scans files in a directory for suspect words, for example foor Git merge conflict markers like "<<<"
 It can be used to check for any suspect words in code files. 
 
-# Coming features
+## Boilerplate check
+This [script](./scripts/check_boilerplate.py) recursively scans the directory for source files (you can define which extensions to include). Then it compares the beginning of each file against the boilerplate template. Finally it print which files pass or fail.
 
-- code checks
+## File size check
+[It](./scripts/check_file_size.py)
+- Walks the directory recursively.
+- For each file → count code lines.
+- Compares with the max allowed.
+
+# Coming features
+- documentation_level_check
 - Package manager support for Mac and Linux
 - CMake formatting
 - Versioning
