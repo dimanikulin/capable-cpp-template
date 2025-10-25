@@ -38,6 +38,7 @@
 - [Testing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#testing)
 - [Formatting](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#formatting)
 - [Static analyzers](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#static-analyzers)
+- [Code checks](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#code-checks)
 - [Code coverage](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#code-coverage)
 - [Documentation](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#documentation)
 - [Packaging](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#packaging)
