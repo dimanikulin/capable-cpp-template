@@ -52,9 +52,9 @@ jobs:
     - name: Clean up before build (Windows only)
       if: matrix.config.os == 'windows-latest'
       run: |
-        rmdir /s /q .ccache
+        rmdir /s .ccache
         mkdir .ccache
-        rmdir /s /q build
+        rmdir /s build
 
     - name: Checkout FVA repository
       uses: actions/checkout@v3 
