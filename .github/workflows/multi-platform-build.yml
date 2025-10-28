@@ -43,6 +43,19 @@ jobs:
         #  }
 
     steps:
+    - name : Clean up before build (Linux only)
+      if: matrix.config.os == 'ubuntu-latest'
+      run: |
+        rm -rf .ccache
+        mkdir .ccache
+        rm -rf build
+    - name: Clean up before build (Windows only)
+      if: matrix.config.os == 'windows-latest'
+      run: |
+        rmdir /s /q .ccache
+        mkdir .ccache
+        rmdir /s /q build
+
     - name: Checkout FVA repository
       uses: actions/checkout@v3 
       with:  #to checkout submodules as well
