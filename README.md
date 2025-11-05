@@ -114,6 +114,7 @@ flowchart LR
 ```
 ## Clean
 To be defined
+TODO to add into contents table
 
 ## Building
 
@@ -250,6 +251,7 @@ It can be used to check for any suspect words in code files.
 
 ## Boilerplate check
 This [script](./scripts/check_boilerplate.py) recursively scans the directory for source files (you can define which extensions to include). Then it compares the beginning of each file against the boilerplate template. Finally it print which files pass or fail.
+You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
 
 ## File size check
 [It](./scripts/check_file_size.py)
@@ -258,7 +260,6 @@ This [script](./scripts/check_boilerplate.py) recursively scans the directory fo
 - Compares with the max allowed.
 
 # Coming features
-- clean
 - documentation_level_check
 - Package manager support for Mac and Linux
 - CMake formatting
@@ -269,10 +270,6 @@ This [script](./scripts/check_boilerplate.py) recursively scans the directory fo
 - QT support (CI and local)
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - Publishing documentation on GitHub Pages
-
-## Check for boilerplate
-You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using this check.
-Also please uncomment run of *boilerplate_check.py* in *codeChecks.yml*
 
 
 # Contributing
