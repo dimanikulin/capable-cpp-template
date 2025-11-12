@@ -1,10 +1,8 @@
-# Script description
-
-## format_fix.sh
+# format_fix.sh
 
  - It fixes the code formatting according to *.clang-format* format configuration in the root dir.
 
-## check_suspect_words.py
+# check_suspect_words.py
 
 - Create marker file with suspect words
 ```bash
@@ -20,7 +18,7 @@ python check_suspect_words.py . --marker-file markers.txt --ext .py .cpp
 ```bash
 python check_suspect_words.py ./src --marker-file markers.txt --ext .py .cpp
 ```
-## check_boilerplates.py
+# check_boilerplates.py
 
 It recursively scans the directory for source files (you can define which extensions to include). Then it compares the beginning of each file against the boilerplate template. Finally it print which files pass or fail.
 
@@ -36,7 +34,7 @@ boilerplate.txt = your reference boilerplate (e.g., license header).
 
 It will check the first N lines of each file (where N is the number of lines in the boilerplate).
 
-## check_file_size.py
+# check_file_size.py
 It 
 - Walks the directory recursively.
 - For each file → count code lines.
@@ -48,7 +46,7 @@ Collects:
 
 At the end → prints statistics + exit non-zero if any failed.
 
-### Usage
+## Usage
 python count_code_lines.py <dir> <max_lines> [comment_symbol] [ext1 ext2 ...]
 
 Check all Python files under src/, max 500 lines allowed:
