@@ -225,6 +225,18 @@ or
 sudo apt-get install cmake-format
 ```
 
+then check formatting by 
+
+```bash
+cmake-format --check CMakeLists.txt
+```
+
+or fix formatting via
+
+```bash
+cmake-format -i CMakeLists.txt
+```
+
 # Documentation
 TODO - to add something regarding Doxygen
 Please see *releaseDocs.yml* for more details
