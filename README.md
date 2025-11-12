@@ -33,6 +33,7 @@
 - [Description](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#description)
 - [Features](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#features)
 - [Initialization](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#initialization)
+- [Clean](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#clean)
 - [Building](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#building)
 - [Using QT](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#using-qt)
 - [Testing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#testing)
@@ -71,6 +72,7 @@ Any feedback is greatly appreciated!
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Formatting**          | Yes | Using *clang-format* and Google code style cfg - to format C and CPP code, format fix script  |
+|  | **CMake formatting**    | Yes | TBD |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
@@ -114,7 +116,6 @@ flowchart LR
 ```
 ## Clean
 To be defined
-TODO to add into contents table
 
 ## Building
 
@@ -212,8 +213,20 @@ find src -regex '.*\.\(cpp\|h\|cc\|cxx\)' -exec clang-format-17 -i {} \;
 
 Please see it [here](./scripts/format_fix.sh)
 
-# Documentation
+# CMake formatting
+First of all we need to install *cmake-format*
 
+```bash
+pip install cmake-format
+```
+or 
+
+```bash
+sudo apt-get install cmake-format
+```
+
+# Documentation
+TODO - to add something regarding Doxygen
 Please see *releaseDocs.yml* for more details
 
 You can add source view with help of [gitdiagram](https://gitdiagram.com/) 
@@ -262,7 +275,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 # Coming features
 - documentation_level_check
 - Package manager support for Mac and Linux
-- CMake formatting
 - Versioning
 - Codes
 - MarkDown Lint
