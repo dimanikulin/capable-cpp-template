@@ -101,3 +101,11 @@ jobs:
         with:
           path: ./file-size-report.txt
           name: file-size-report.txt
+
+      - name: CMake Format check
+        run: |
+          echo "==================Installing cmake-format====================================="
+          pip install cmake-format
+          echo "==================Running cmake-format====================================="
+          FILES=$(find . -name "CMakeLists.txt" -o -name "*.cmake")
+          cmake-format --check $FILES
