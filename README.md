@@ -246,9 +246,6 @@ pip install cmakelint
 ```
 or 
 
-```bash
-sudo apt-get install cmakelint
-```
 Then check:
 
 ```bash
