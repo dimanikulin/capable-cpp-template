@@ -38,6 +38,7 @@
 - [Using QT](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#using-qt)
 - [Testing](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#testing)
 - [Formatting](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#formatting)
+- [Cmake formatting](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#cmake-formatting)
 - [Static analyzers](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#static-analyzers)
 - [Code checks](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#code-checks)
 - [Code coverage](https://github.com/dimanikulin/capable-cpp-template?tab=readme-ov-file#code-coverage)
@@ -72,7 +73,7 @@ Any feedback is greatly appreciated!
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Formatting**          | Yes | Using *clang-format* and Google code style cfg - to format C and CPP code, format fix script  |
-|  | **CMake formatting**    | Yes | Using *cmake-format*, *.cmake-format.yaml* - example of format cfg, format fix script |
+|  | **CMake formatting**    | Yes | Using *cmake-format* and *cmakelint*, *.cmake-format.yaml* - example of format cfg, format fix script |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
@@ -237,9 +238,27 @@ or fix formatting via
 cmake-format -i CMakeLists.txt
 ```
 
+## Linting for CMake
+If you also want linting, install:
+
+```bash
+pip install cmakelint
+```
+or 
+
+```bash
+sudo apt-get install cmakelint
+```
+Then check:
+
+```bash
+cmakelint CMakeLists.txt
+```
+
 # Documentation
 TODO - to add something regarding Doxygen
 Please see *releaseDocs.yml* for more details
+
 
 You can add source view with help of [gitdiagram](https://gitdiagram.com/) 
 
