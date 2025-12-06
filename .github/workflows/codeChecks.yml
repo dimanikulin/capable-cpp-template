@@ -107,5 +107,5 @@ jobs:
           echo "==================Installing cmake-format====================================="
           pip install cmake-format
           echo "==================Running cmake-format====================================="
-          FILES=$(find . -name "CMakeLists.txt" -o -name "*.cmake")
+          FILES=$(find . -name "CMakeLists.txt" -o -name "*.cmake" | grep -vE "(^./build/|^./external/)")
           cmake-format --check $FILES
