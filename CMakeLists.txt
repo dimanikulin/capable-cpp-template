@@ -24,23 +24,19 @@ message(STATUS "Enable coverage: ${ENABLE_COVERAGE}")
 add_subdirectory(src)
 
 # Code coverage
-if(ENABLE_COVERAGE)
-  set(CMAKE_CXX_FLAGS
-      "${CMAKE_CXX_FLAGS} -O0 -g -fprofile-arcs -ftest-coverage")
+if (ENABLE_COVERAGE)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g -fprofile-arcs -ftest-coverage")
   message("Code coverage is enabled and provided with GCC.")
-endif()
+endif ()
 
 # Add auto-tests
-if(BUILD_TESTS)
+if (BUILD_TESTS)
   message(
-    STATUS
-      "Build unit tests for the project. Tests should always be found in the test folder\n"
-  )
+    STATUS "Build unit tests for the project. Tests should always be found in the test folder\n")
   enable_testing()
   include(FetchContent)
-  FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz)
+  FetchContent_Declare(googletest
+                       URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz)
   FetchContent_MakeAvailable(googletest)
   add_subdirectory(test)
-endif()
+endif ()
