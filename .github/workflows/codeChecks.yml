@@ -106,6 +106,10 @@ jobs:
         run: |
           echo "==================Installing cmake-format====================================="
           pip install cmake-format
+          echo "==================Installing cmake-format====================================="
+          pip install cmakelint
           echo "==================Running cmake-format====================================="
           FILES=$(find . -name "CMakeLists.txt" | grep -vE "(^./CMakeFiles/.|^./_deps/)")
           cmake-format --check $FILES
+          echo "==================Running cmakelint====================================="
+          for file in $FILES; do cmakelint $file || exit 1; done
