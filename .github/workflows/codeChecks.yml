@@ -110,6 +110,18 @@ jobs:
           pip install cmakelint
           echo "==================Running cmake-format====================================="
           FILES=$(find . -name "CMakeLists.txt" | grep -vE "(^./CMakeFiles/.|^./_deps/)")
-          cmake-format --check $FILES
+          cmake-format --check $FILES >> ./cmake-format-report.txt
+          echo "==================Uploading cmake-format report====================================="
+          cat ./cmake-format-report.txt
           echo "==================Running cmakelint====================================="
-          for file in $FILES; do cmakelint $file || exit 1; done
+          for file in $FILES; do cmakelint $file || exit 1; done >> ./cmakelint-format-report.txt
+      - name: Upload cmake-format report to git hub storage to use later
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./cmake-format-report.txt
+          name: cmake-format-report.txt
+      - name: Upload cmakelint-format report to git hub storage to use later
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./cmakelint-format-report.txt
+          name: cmakelint-format-report.txt
