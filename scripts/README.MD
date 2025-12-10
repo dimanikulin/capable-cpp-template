@@ -2,7 +2,7 @@
 
  - It fixes the code formatting according to *.clang-format* format configuration in the root dir.
 
-# format_fix_cmake
+# format_fix_cmake.sh
 - It the CMakeLists.file according to *..cmake-format.yaml* format configuration in the root dir.
 
 # check_suspect_words.py
