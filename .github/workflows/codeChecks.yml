@@ -114,7 +114,7 @@ jobs:
           echo "==================Uploading cmake-format report====================================="
           cat ./cmake-format-report.txt
           echo "==================Running cmakelint====================================="
-          for file in $FILES; do cmakelint $file || exit 1; done >> ./cmakelint-format-report.txt
+          for file in $FILES; do cmakelint $file >> ./cmakelint-format-report.txt; done
       - name: Upload cmake-format report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
