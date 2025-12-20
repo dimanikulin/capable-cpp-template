@@ -123,7 +123,14 @@ jobs:
           pip install cmakelint
           echo "==================Running cmakelint====================================="
           FILES=$(find . -name "CMakeLists.txt" | grep -vE "(^./CMakeFiles/.|^./_deps/)")
-          for file in $FILES; do cmakelint $file >> ./cmakelint-format-report.txt; done
+          : > ./cmakelint-format-report.txt
+          for file in $FILES; do
+          {
+            echo "===== $file ====="
+            cmakelint "$file"
+            echo
+          } >> ./cmakelint-format-report.txt 2>&1 || true
+          done
       - name: Upload cmakelint-format report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
