@@ -74,6 +74,7 @@ Any feedback is greatly appreciated!
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
 |  | **Formatting**          | Yes | Using *clang-format* and Google code style cfg - to format C and CPP code, format fix script  |
 |  | **CMake formatting**    | Yes | Using *cmake-format* and *cmakelint*, *.cmake-format.yaml* - example of format cfg, format fix script |
+|  | **MarkDown Lint**       | Yes | Using *markdownlint-cli2* |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
@@ -251,6 +252,18 @@ Then check:
 ```bash
 cmakelint CMakeLists.txt
 ```
+# Markdown Linter
+To install *markdownlint-cli2* please run:
+
+```bash
+npm install -g markdownlint-cli2
+```
+
+Then you can check *Markdown* files by running:
+
+```bash
+markdownlint-cli2 README.md
+```
 
 # Documentation
 TODO - to add something regarding Doxygen
@@ -305,11 +318,11 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Package manager support for Mac and Linux
 - Versioning
 - Codes
-- MarkDown Lint
 - Dockerfile
 - QT support (CI and local)
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - Publishing documentation on GitHub Pages
+- github copilot rules - https://dou.ua/forums/topic/56845/?from=tg&utm_source=telegram&utm_medium=social
 
 
 # Contributing
