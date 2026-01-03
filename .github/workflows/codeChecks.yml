@@ -141,8 +141,7 @@ jobs:
           echo "==================Installing markdownlint-cli====================================="
           npm install -g markdownlint-cli
           echo "==================Running markdownlint====================================="
-          FILES=$(find . -name "*.md" -not -path "./.github/*")
-          markdownlint $FILES > ./markdownlint-report.txt || true
+          markdownlint "**/*.md" > ./markdownlint-report.txt
       - name: Upload markdownlint report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
