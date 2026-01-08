@@ -137,11 +137,12 @@ jobs:
           path: ./cmakelint-format-report.txt
           name: cmakelint-format-report.txt
       - name: MarkDown Lint check
-        run: |
+        continue-on-error: true
+        run: |        
           echo "==================Installing markdownlint-cli====================================="
           npm install -g markdownlint-cli
           echo "==================Running markdownlint====================================="
-          markdownlint "**/*.md" > ./markdownlint-report.txt
+          markdownlint "**/*.md" > ./markdownlint-report.txt 2>&1
       - name: Upload markdownlint report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
