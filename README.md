@@ -80,6 +80,8 @@ Any feedback is greatly appreciated!
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                  | Yes | Installed on CI only |
+|  | **Versioning**          | Yes | TBD |
+
 
 What is important - you can easialy disable the things you don't use.
 
@@ -316,7 +318,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 # Coming features
 - documentation_level_check
 - Package manager support for Mac and Linux
-- Versioning
 - Codes
 - Dockerfile
 - QT support (CI and local)
