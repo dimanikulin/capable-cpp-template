@@ -323,7 +323,7 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Qt-oriented static code analyzer based on the Clang [framework](https://github.com/KDE/clazy)
 - Publishing documentation on GitHub Pages
 - github copilot rules - https://dou.ua/forums/topic/56845/?from=tg&utm_source=telegram&utm_medium=social
-
+- agents https://agents.md/
 
 # Contributing
 
