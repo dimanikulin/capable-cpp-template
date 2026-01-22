@@ -80,7 +80,7 @@ Any feedback is greatly appreciated!
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                  | Yes | Installed on CI only |
-|  | **Versioning**          | Yes | TBD |
+|  | **Versioning**          | Yes | Using Application Version (SemVer) |
 
 
 What is important - you can easialy disable the things you don't use.
