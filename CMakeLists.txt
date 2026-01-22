@@ -9,6 +9,12 @@ project(
   VERSION 0.1.0
   LANGUAGES CXX)
 
+# versioning
+configure_file(
+    ${CMAKE_SOURCE_DIR}/version.h.in
+    ${CMAKE_BINARY_DIR}/generated/version.h
+)
+
 message(STATUS "CMake version: ${CMAKE_VERSION}")
 message(STATUS "C++ standard: ${CMAKE_CXX_STANDARD}")
 message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
