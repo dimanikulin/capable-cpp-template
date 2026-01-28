@@ -22,6 +22,11 @@ public:
      * @brief a function that returns the parameter
      */
     bool function2();
+
+    /*!
+     * @brief print version info
+     */
+    void versionInfo();
 };
 
 #endif  // TEMPLATE_CLASS_H

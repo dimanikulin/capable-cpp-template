@@ -4,6 +4,7 @@
 // information is prohibited except by written agreement with YOUR COMPANY NAME.
 
 #include "template_class.h"
+#include "version.h"
 
 int TemplateClass::function(int param) { return (param); }
 
@@ -13,4 +14,8 @@ bool TemplateClass::function2() {
     if (function(2) == 0) return false;
 
     return true;
+}
+void TemplateClass::versionInfo() {
+    // Print version information    
+    std::cout << "App version: " << APP_VERSION_STRING << "\n";
 }
