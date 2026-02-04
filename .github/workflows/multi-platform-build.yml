@@ -272,7 +272,7 @@ jobs:
          lcov --remove ./build/coverage.info --directory ./build -o ./build/filtered_coverage.info \
          '/usr/include/*' \
          '/include/gtest/*' \
-         '*/test/*' \
+         '*/tests/*' \
          '*/googletest/*'
          echo "================================= Conversion coverage====================================="
          genhtml ./build/filtered_coverage.info --output-directory coverage_report
