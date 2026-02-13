@@ -3,6 +3,7 @@
 // property of YOUR COMPANY NAME. The use, copying, transfer or disclosure of such
 // information is prohibited except by written agreement with YOUR COMPANY NAME.
 
+#include <iostream>
 #include "template_class.h"
 #include "version.h"
 
