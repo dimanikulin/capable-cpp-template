@@ -69,9 +69,9 @@ jobs:
       - name: Check for suspect words
         # This step checks for suspect words in the codebase
         run: |
-          python3 ./scripts/check_suspect_words.py "./src" --marker-file ./scripts/check_suspect_words.txt > ./suspect-words-report.txt
-          #python3 ./scripts/check_suspect_words.py "./tools" --marker-file ./scripts/check_suspect_words.txt >> ./suspect-words-report.txt
-          python3 ./scripts/check_suspect_words.py "./tests" --marker-file ./scripts/check_suspect_words.txt >> ./suspect-words-report.txt
+          python3 ./tools/check_suspect_words.py "./src" --marker-file ./tools/check_suspect_words.txt > ./suspect-words-report.txt
+          #python3 ./tools/check_suspect_words.py "./tools" --marker-file ./tools/check_suspect_words.txt >> ./suspect-words-report.txt
+          python3 ./tools/check_suspect_words.py "./tests" --marker-file ./tools/check_suspect_words.txt >> ./suspect-words-report.txt
       - name: Upload suspect words report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
@@ -81,9 +81,9 @@ jobs:
       - name: Check for boilerplate code
         # This step checks for boilerplate code in the codebase
         run: |
-          python3 ./scripts/check_boilerplate.py --src "./src" --boilerplate ./scripts/check_boilerplate.txt > ./boilerplate-report.txt
-          #python3 ./scripts/check_boilerplate.py --src "./tools" --boilerplate ./scripts/check_boilerplate.txt >> ./boilerplate-report.txt
-          python3 ./scripts/check_boilerplate.py --src "./tests" --boilerplate ./scripts/check_boilerplate.txt >> ./boilerplate-report.txt
+          python3 ./tools/check_boilerplate.py --src "./src" --boilerplate ./tools/check_boilerplate.txt > ./boilerplate-report.txt
+          #python3 ./tools/check_boilerplate.py --src "./tools" --boilerplate ./tools/check_boilerplate.txt >> ./boilerplate-report.txt
+          python3 ./tools/check_boilerplate.py --src "./tests" --boilerplate ./tools/check_boilerplate.txt >> ./boilerplate-report.txt
       - name: Upload boilerplate report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
@@ -93,9 +93,9 @@ jobs:
       - name: Check for large files
         # This step checks for large files in the codebase
         run: |
-          python3 ./scripts/check_file_size.py "./src" 500 "//" .cpp .h > ./file-size-report.txt
-          #python3 ./scripts/check_file_size.py "./tools" 500 "#" .py >> ./file-size-report.txt
-          python3 ./scripts/check_file_size.py "./tests" 500 "//" .cpp .h >> ./file-size-report.txt
+          python3 ./tools/check_file_size.py "./src" 500 "//" .cpp .h > ./file-size-report.txt
+          #python3 ./tools/check_file_size.py "./tools" 500 "#" .py >> ./file-size-report.txt
+          python3 ./tools/check_file_size.py "./tests" 500 "//" .cpp .h >> ./file-size-report.txt
       - name: Upload file size report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
