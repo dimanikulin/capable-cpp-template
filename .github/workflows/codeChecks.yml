@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./cppcheck_report.txt
-          name: cppcheck_report.txt
+          name: cppcheck_report.zip
 
       - name: clang-tidy check
         run: |
@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./clang-tidy-report.txt
-          name: clang-tidy-report.txt
+          name: clang-tidy-report.zip
 
       - name: Format check
         run: |
@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./suspect-words-report.txt
-          name: suspect-words-report.txt
+          name: suspect-words-report.zip
 
       - name: Check for boilerplate code
         # This step checks for boilerplate code in the codebase
@@ -88,7 +88,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./boilerplate-report.txt
-          name: boilerplate-report.txt
+          name: boilerplate-report.zip
 
       - name: Check for large files
         # This step checks for large files in the codebase
@@ -100,7 +100,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./file-size-report.txt
-          name: file-size-report.txt
+          name: file-size-report.zip
 
       - name: CMake Format check
         run: |
@@ -115,7 +115,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./cmake-format-report.txt
-          name: cmake-format-report.txt
+          name: cmake-format-report.zip
 
       - name: CMake Linter check
         run: |
@@ -135,7 +135,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./cmakelint-format-report.txt
-          name: cmakelint-format-report.txt
+          name: cmakelint-format-report.zip
       - name: MarkDown Lint check
         continue-on-error: true
         run: |        
@@ -147,4 +147,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./markdownlint-report.txt
-          name: markdownlint-report.txt
+          name: markdownlint-report.zip
