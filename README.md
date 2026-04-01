@@ -68,7 +68,7 @@ Any feedback is greatly appreciated!
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**     | Yes | By *CppCheck* GitHub Action and *clang-tidy* |
 |  | **Clean**               | Yes | Using *GitHub Actions* CI step |
-|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size |
+|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size, doc level |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
