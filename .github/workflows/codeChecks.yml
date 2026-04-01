@@ -151,7 +151,7 @@ jobs:
 
       - name: Check for documentation level
         run: |
-          python3 ./tools/check_documentation_level.py "./src" > ./documentation-level-report.txt
+          python3 ./tools/check_documentation_level.py --dir "./src" > ./documentation-level-report.txt
       - name: Upload documentation level report to git hub storage to use later
         uses: actions/upload-artifact@v4
         with:
