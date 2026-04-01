@@ -4,7 +4,9 @@
 # property of YOUR COMPANY NAME. The use, copying, transfer or disclosure of such
 # information is prohibited except by written agreement with YOUR COMPANY NAME.
 
+from py_compile import main
 import re
+from pathlib import Path
 
 # Separator for documentation file.
 SEPARATOR_LENGTH = 40
@@ -247,14 +249,20 @@ def check_one_file(source_file):
     d = DocumentationChecker(source_file)
     return d.check_file()
 
+def get_files_recursive(directory, extension):
+    return list(Path(directory).rglob(f"*{extension}"))
 
-def documentation_check(dir_to_check, exclude_dirs, common_dirs):
+
+def documentation_check(dir_to_check):
+    # Checking documentation level for test code and common code. If documentation level is less than 70% - test is failed, otherwise - passed.
+    # Results are returned in two dictionaries: with errors and with extended summary (pass/fail).
     extensions = ('.h')
-    test_files_to_check = get_tests_code_files(dir_to_check, extensions=extensions, exclude_dirs=exclude_dirs, common_dirs=common_dirs)
-    common_files_to_check = get_common_code_files(dir_to_check, extensions=extensions, exclude_dirs=exclude_dirs, common_dirs=common_dirs)
+
+    # get list of files to check for with given extensions 
+    files_to_check = get_files_recursive("my_folder", extensions)
     results = { 'test_code' : {}, 'common_code' : {} }
     extended_results = { 'test_code' : {}, 'common_code' : {} }
-    for test_file in test_files_to_check:
+    for test_file in files_to_check:
         if test_file.endswith("-inl.h"):
             continue
         errors, percent = documentation_level_check.check_one_file(test_file)
@@ -266,16 +274,31 @@ def documentation_check(dir_to_check, exclude_dirs, common_dirs):
                 extended_results['test_code'][test_file.split('/Tests/')[1]] = "Pass"
         else:
             extended_results['test_code'][test_file.split('/Tests/')[1]] = "Pass"
-    for common_file in common_files_to_check:
-        if common_file.endswith("-inl.h"):
-            continue
-        errors, percent = documentation_level_check.check_one_file(common_file)
-        if errors:
-            results['common_code'][common_file.split('/Tests/')[1]] = errors
-            if percent < 0.7:
-                extended_results['common_code'][common_file.split('/Tests/')[1]] = "Fail"
-            else:
-                extended_results['common_code'][common_file.split('/Tests/')[1]] = "Pass"
-        else:
-            extended_results['common_code'][common_file.split('/Tests/')[1]] = "Pass"
     return results, extended_results
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Check documentation level in source files.")
+    parser.add_argument("--dir", required=True, help="Path to source directory")
+    args = parser.parse_args()
+
+    documentation_level_check = DocumentationChecker("")
+    results, extended_results = documentation_check(args.dir)
+
+    print("\nDocumentation level check results:")
+    for category in results:
+        print(f"\nCategory: {category}")
+        for file, errors in results[category].items():
+            if errors:
+                print(f"[FAIL]  {file}")
+                for error in errors:
+                    print(error)
+            else:
+                print(f"[PASS]  {file}")
+
+    print("\nExtended summary:")
+    for category in extended_results:
+        print(f"\nCategory: {category}")
+        for file, status in extended_results[category].items():
+            print(f"{status}  {file}")
