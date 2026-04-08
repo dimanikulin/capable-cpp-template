@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/bash
 # Copyright {YEAR} YOUR COMPANY NAME.
 # All Rights Reserved. The information contained herein is confidential
 # property of YOUR COMPANY NAME. The use, copying, transfer or disclosure of such
