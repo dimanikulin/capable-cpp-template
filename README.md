@@ -327,6 +327,7 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Git Copilot Coding Agent - https://learn.microsoft.com/en-us/training/modules/github-copilot-code-agent/4-customize-extend-validate-copilot-code-agent
 - github/copilot-instructions.md 
 - security.instructions.md
+- main file
 
 # Contributing
 
