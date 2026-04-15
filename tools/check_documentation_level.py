@@ -4,7 +4,6 @@
 # property of YOUR COMPANY NAME. The use, copying, transfer or disclosure of such
 # information is prohibited except by written agreement with YOUR COMPANY NAME.
 
-from py_compile import main
 import re
 from pathlib import Path
 
@@ -12,6 +11,7 @@ from pathlib import Path
 SEPARATOR_LENGTH = 40
 # Skipping line if it starts with:
 WORDS_TO_SKIP = ["#", "using ", "typedef "]
+SUPPORTED_EXTENSIONS = (".h", ".hpp", ".hh", ".hxx", ".c", ".cc", ".cpp", ".cxx")
 
 
 class DocumentationChecker:
@@ -85,10 +85,12 @@ class DocumentationChecker:
                 percent = 1
             else:
                 percent = self.__commented_entities / self.__all_entities
+
+            file_name = Path(self.__source_file).as_posix()
             if percent < 0.7:
-                print('documentation check for file ' + self.__source_file.split('/Tests/')[1] + ' failed')
+                print(f"documentation check for file {file_name} failed")
             else:
-                print('documentation check for file ' + self.__source_file.split('/Tests/')[1] + ' is OK')
+                print(f"documentation check for file {file_name} is OK")
         return self.__file_errors, percent
 
     def check_one_class(self, line, f):
@@ -249,31 +251,40 @@ def check_one_file(source_file):
     d = DocumentationChecker(source_file)
     return d.check_file()
 
-def get_files_recursive(directory, extension):
-    return list(Path(directory).rglob(f"*{extension}"))
+
+def get_files_recursive(directory, extensions):
+    directory = Path(directory)
+    files = []
+    for extension in extensions:
+        files.extend(directory.rglob(f"*{extension}"))
+    return sorted(set(files))
 
 
 def documentation_check(dir_to_check):
     # Checking documentation level for test code and common code. If documentation level is less than 70% - test is failed, otherwise - passed.
     # Results are returned in two dictionaries: with errors and with extended summary (pass/fail).
-    extensions = ('.h')
+    root_dir = Path(dir_to_check).expanduser().resolve()
+    if not root_dir.exists() or not root_dir.is_dir():
+        raise ValueError(f"Directory does not exist or is not a directory: {dir_to_check}")
 
-    # get list of files to check for with given extensions 
-    files_to_check = get_files_recursive("my_folder", extensions)
-    results = { 'test_code' : {}, 'common_code' : {} }
-    extended_results = { 'test_code' : {}, 'common_code' : {} }
-    for test_file in files_to_check:
-        if test_file.endswith("-inl.h"):
+    files_to_check = get_files_recursive(root_dir, SUPPORTED_EXTENSIONS)
+    results = {'test_code': {}, 'common_code': {}}
+    extended_results = {'test_code': {}, 'common_code': {}}
+
+    for source_file in files_to_check:
+        if source_file.name.endswith("-inl.h"):
             continue
-        errors, percent = documentation_level_check.check_one_file(test_file)
+
+        errors, percent = check_one_file(str(source_file))
+        relative_path = source_file.relative_to(root_dir).as_posix()
+        category = 'test_code' if 'test' in relative_path.lower() else 'common_code'
+
         if errors:
-            results['test_code'][test_file.split('/Tests/')[1]] = errors
-            if percent < 0.7:
-                extended_results['test_code'][test_file.split('/Tests/')[1]] = "Fail"
-            else:
-                extended_results['test_code'][test_file.split('/Tests/')[1]] = "Pass"
+            results[category][relative_path] = errors
+            extended_results[category][relative_path] = "Fail" if percent < 0.7 else "Pass"
         else:
-            extended_results['test_code'][test_file.split('/Tests/')[1]] = "Pass"
+            extended_results[category][relative_path] = "Pass"
+
     return results, extended_results
 
 if __name__ == "__main__":
@@ -283,7 +294,6 @@ if __name__ == "__main__":
     parser.add_argument("--dir", required=True, help="Path to source directory")
     args = parser.parse_args()
 
-    documentation_level_check = DocumentationChecker("")
     results, extended_results = documentation_check(args.dir)
 
     print("\nDocumentation level check results:")
