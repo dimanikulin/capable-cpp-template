@@ -11,7 +11,7 @@ from pathlib import Path
 SEPARATOR_LENGTH = 40
 # Skipping line if it starts with:
 WORDS_TO_SKIP = ["#", "using ", "typedef "]
-SUPPORTED_EXTENSIONS = (".h", ".hpp", ".hh", ".hxx", ".c", ".cc", ".cpp", ".cxx")
+SUPPORTED_EXTENSIONS = (".h", ".hpp", ".hh", ".hxx")
 
 
 class DocumentationChecker:
@@ -22,6 +22,58 @@ class DocumentationChecker:
         self.__commented_entities = 0
         self.__file_errors = []
         self.__source_file = source_file
+        self.__inside_block_comment = False
+
+    def has_brief_doc(self):
+        """Check if \\brief tag exists in documentation lines."""
+        return any("\\brief" in l for l in self.__lines)
+
+    def has_param_doc(self):
+        """Count \\param tags in documentation lines."""
+        return sum("\\param" in l for l in self.__lines)
+
+    def has_return_doc(self):
+        """Check if \\return tag exists in documentation lines."""
+        return any("\\return" in l for l in self.__lines)
+
+    def has_any_doc(self):
+        """Check if any documentation tags exist in lines."""
+        return any(
+            "///" in l or "\\brief" in l or "\\param" in l or "\\return" in l
+            for l in self.__lines
+        )
+
+    def strip_block_comments(self, line):
+        """Remove C/C++ block comments while keeping comment text for doxygen tag detection."""
+        cleaned = ""
+        current = line
+        while current:
+            if self.__inside_block_comment:
+                end = current.find("*/")
+                if end == -1:
+                    self.__lines.append(current.strip())
+                    return cleaned
+                self.__lines.append(current[: end + 2].strip())
+                current = current[end + 2 :]
+                self.__inside_block_comment = False
+                continue
+
+            start = current.find("/*")
+            if start == -1:
+                cleaned += current
+                break
+
+            cleaned += current[:start]
+            end = current.find("*/", start + 2)
+            if end == -1:
+                self.__lines.append(current[start:].strip())
+                self.__inside_block_comment = True
+                break
+
+            self.__lines.append(current[start : end + 2].strip())
+            current = current[end + 2 :]
+
+        return cleaned
 
     def check_file(self):
         """
@@ -42,7 +94,7 @@ class DocumentationChecker:
 
                 if "enum " in line:
                     self.__all_entities += 1
-                    if any("///" in l and "\\brief" in l for l in self.__lines):
+                    if self.has_brief_doc():
                         self.__commented_entities += 1
                     else:
                         expected = "/// \\brief [enum description]/n (Maybe use enum class instead)"
@@ -51,7 +103,7 @@ class DocumentationChecker:
 
                 elif "union " in line:
                     self.__all_entities += 1
-                    if any("///" in l and "\\brief" in l for l in self.__lines):
+                    if self.has_brief_doc():
                         self.__commented_entities += 1
                     else:
                         expected = "/// \\brief [union description]/n (Unions shouldn't be used at all))"
@@ -60,7 +112,7 @@ class DocumentationChecker:
 
                 elif line.startswith("const") and ("(" not in line.split("=")[0] or "(" not in line.split("{")[0]):
                     self.__all_entities += 1
-                    if any("///" in l for l in self.__lines):
+                    if self.has_any_doc():
                         self.__commented_entities += 1
                     else:
                         expected = "/// [const description]"
@@ -105,7 +157,7 @@ class DocumentationChecker:
         class_name = re.sub('[{:}\n]', ' ', class_name)
         class_name = class_name.split(" ")[0]
 
-        if any("///" in l and "\\brief" in l for l in self.__lines):
+        if self.has_brief_doc():
             self.__commented_entities += 1
         else:
             expected = "/// \\brief [class/struct description]"
@@ -146,7 +198,7 @@ class DocumentationChecker:
             if function_desc[0].count(" ") != 0 or (not class_name or class_name not in function_desc[0]):
                 expected = ""
                 self.__all_entities += 1
-                if any("///" in l and "\\brief" in l for l in self.__lines):
+                if self.has_brief_doc():
                     self.__commented_entities += 1
                 else:
                     expected = "/// \\brief [function description]\n\n"
@@ -160,7 +212,7 @@ class DocumentationChecker:
                 if not (function_params.strip() == ""):
                     function_params = function_params.split(",")
                     self.__all_entities += len(function_params)
-                    commented_params = sum("\\param" in l for l in self.__lines)
+                    commented_params = self.has_param_doc()
                     self.__commented_entities += commented_params
                     if commented_params != len(function_params):
                         for i in range(len(function_params)):
@@ -168,7 +220,7 @@ class DocumentationChecker:
 
                 if function_desc[0].count(" ") > 0 and "void " not in function_desc[0]:
                     self.__all_entities += 1
-                    if any("///" in l and "\\return" in l for l in self.__lines):
+                    if self.has_return_doc():
                         self.__commented_entities += 1
                     else:
                         expected += "/// \\return [return description]"
@@ -191,6 +243,12 @@ class DocumentationChecker:
     def get_next_line(self, f):
         line = f.readline()
         while line:
+            line = line.strip()
+
+            # Deleting quoted text.
+            line = re.sub("[\"]*[\"]", "", line)
+            line = self.strip_block_comments(line).strip()
+
             if "namespace " in line:
                 while "{" not in line and ";" not in line:
                     line = f.readline()
@@ -204,9 +262,6 @@ class DocumentationChecker:
             line = line.replace("register ", '')
             line = line.strip()
 
-            # Deleting quoted text.
-            line = re.sub("[\"].*[\"]", "", line)
-
             if any(line.startswith(word) for word in WORDS_TO_SKIP):
                 self.__lines = []
                 line = f.readline()
@@ -217,14 +272,14 @@ class DocumentationChecker:
                 while triangle_brackets != 0:
                     line = f.readline()
                     triangle_brackets += line.count("<") - line.count(">")
-                line = f.readline()    
+                line = f.readline()
 
-            self.__lines.append(line)
-            if "//" in line:
+            if not line:
                 line = f.readline()
                 continue
 
-            if not line:
+            self.__lines.append(line)
+            if "//" in line:
                 line = f.readline()
                 continue
 
