@@ -97,7 +97,7 @@ class DocumentationChecker:
                     if self.has_brief_doc():
                         self.__commented_entities += 1
                     else:
-                        expected = "/// \\brief [enum description]/n (Maybe use enum class instead)"
+                        expected = "/// \\brief [enum description]\n (Maybe use enum class instead)"
                         self.add_error(expected)
                     self.__lines = []
 
@@ -106,7 +106,7 @@ class DocumentationChecker:
                     if self.has_brief_doc():
                         self.__commented_entities += 1
                     else:
-                        expected = "/// \\brief [union description]/n (Unions shouldn't be used at all))"
+                        expected = "/// \\brief [union description]\n (Unions shouldn't be used at all))"
                         self.add_error(expected)
                     self.__lines = []
 
