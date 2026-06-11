@@ -316,15 +316,15 @@ def get_files_recursive(directory, extensions):
 
 
 def documentation_check(dir_to_check):
-    # Checking documentation level for test code and common code. If documentation level is less than 70% - test is failed, otherwise - passed.
-    # Results are returned in two dictionaries: with errors and with extended summary (pass/fail).
+    # Checking documentation level for all code files. If documentation level is less than 70% - test is failed, otherwise - passed.
+    # Results are returned in two dictionaries: one with errors and one with extended summary (pass/fail).
     root_dir = Path(dir_to_check).expanduser().resolve()
     if not root_dir.exists() or not root_dir.is_dir():
         raise ValueError(f"Directory does not exist or is not a directory: {dir_to_check}")
 
     files_to_check = get_files_recursive(root_dir, SUPPORTED_EXTENSIONS)
-    results = {'test_code': {}, 'common_code': {}}
-    extended_results = {'test_code': {}, 'common_code': {}}
+    results = {}
+    extended_results = {}
 
     for source_file in files_to_check:
         if source_file.name.endswith("-inl.h"):
@@ -332,13 +332,12 @@ def documentation_check(dir_to_check):
 
         errors, percent = check_one_file(str(source_file))
         relative_path = source_file.relative_to(root_dir).as_posix()
-        category = 'test_code' if 'test' in relative_path.lower() else 'common_code'
 
         if errors:
-            results[category][relative_path] = errors
-            extended_results[category][relative_path] = "Fail" if percent < 0.7 else "Pass"
+            results[relative_path] = errors
+            extended_results[relative_path] = "Fail" if percent < 0.7 else "Pass"
         else:
-            extended_results[category][relative_path] = "Pass"
+            extended_results[relative_path] = "Pass"
 
     return results, extended_results
 
@@ -352,18 +351,14 @@ if __name__ == "__main__":
     results, extended_results = documentation_check(args.dir)
 
     print("\nDocumentation level check results:")
-    for category in results:
-        print(f"\nCategory: {category}")
-        for file, errors in results[category].items():
-            if errors:
-                print(f"[FAIL]  {file}")
-                for error in errors:
-                    print(error)
-            else:
-                print(f"[PASS]  {file}")
+    for file, errors in results.items():
+        if errors:
+            print(f"[FAIL]  {file}")
+            for error in errors:
+                print(error)
+        else:
+            print(f"[PASS]  {file}")
 
     print("\nExtended summary:")
-    for category in extended_results:
-        print(f"\nCategory: {category}")
-        for file, status in extended_results[category].items():
-            print(f"{status}  {file}")
+    for file, status in extended_results.items():
+        print(f"{status}  {file}")
