@@ -26,20 +26,26 @@ class DocumentationChecker:
 
     def has_brief_doc(self):
         """Check if \\brief tag exists in documentation lines."""
-        return any("\\brief" in l for l in self.__lines)
+        return any("\\brief" in l or "@brief" in l for l in self.__lines)
 
     def has_param_doc(self):
         """Count \\param tags in documentation lines."""
-        return sum("\\param" in l for l in self.__lines)
+        return sum("\\param" in l or "@param" in l for l in self.__lines)
 
     def has_return_doc(self):
         """Check if \\return tag exists in documentation lines."""
-        return any("\\return" in l for l in self.__lines)
+        return any("\\return" in l or "@return" in l for l in self.__lines)
 
     def has_any_doc(self):
         """Check if any documentation tags exist in lines."""
         return any(
-            "///" in l or "\\brief" in l or "\\param" in l or "\\return" in l
+            "///" in l
+            or "\\brief" in l
+            or "@brief" in l
+            or "\\param" in l
+            or "@param" in l
+            or "\\return" in l
+            or "@return" in l
             for l in self.__lines
         )
 
