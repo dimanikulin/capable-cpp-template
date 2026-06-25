@@ -1,0 +1,13 @@
+# ninja log v7
+5	718	1782368496375404075	tests/CMakeFiles/capable_template_app_test.dir/static_analyzer_test.cpp.o	1f2ee8e7e576ec3c
+719	1066	1782368497089758967	tests/CMakeFiles/capable_template_app_test.dir/__/src/template_class.cpp.o	5f1023292f3ad061
+2	2281	1782368496372791691	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	6dc6930da83ce92a
+3	2806	1782368496374594570	tests/CMakeFiles/capable_template_app_test.dir/template_class_test.cpp.o	9b5485a6ecee8505
+2	2950	1782368496373095220	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	3b9adb4a6beadb70
+1	5788	1782368496372452076	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	a2a712539a7cda0c
+1	16797	1782368496371404047	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	5ef944f00a63b024
+16797	33317	1782368513167518934	lib/libgtest.a	19aaef33abbe8eda
+33318	33394	1782368529688632750	lib/libgtest_main.a	ab69e362af6c2628
+33317	33399	1782368529687632743	lib/libgmock.a	58948547ae20fe80
+33399	33481	1782368529769633306	lib/libgmock_main.a	11e14a9569f68c63
+33400	33511	1782368529770633313	tests/capable_template_app_test	e31a480e9501ba3e
