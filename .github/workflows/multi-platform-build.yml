@@ -123,11 +123,11 @@ jobs:
       run: |
         git clone https://github.com/google/googletest.git --branch release-1.12.1
         cd googletest
-        if [ "${{ runner.os }}" = "Windows" ]; then
+        if ("${{ runner.os }}" STREQUAL "Windows")
           cmake -Bbuild -DCMAKE_INSTALL_PREFIX="$HOME/.local" -Dgtest_force_shared_crt=1 -G "MinGW Makefiles"
-        else
+        else()
           cmake -Bbuild -DCMAKE_INSTALL_PREFIX="$HOME/.local" -G "Unix Makefiles"
-        fi
+        endif()
         cmake --build build --config Release
         cmake --build build --target install --config Release
         cd ..
