@@ -123,15 +123,11 @@ jobs:
       run: |
         git clone https://github.com/google/googletest.git --branch release-1.12.1
         cd googletest
-        if ("${{ runner.os }}" STREQUAL "Windows")
-          cmake -Bbuild -DCMAKE_INSTALL_PREFIX="$HOME/.local" -Dgtest_force_shared_crt=1 -G "MinGW Makefiles"
-        else()
-          cmake -Bbuild -DCMAKE_INSTALL_PREFIX="$HOME/.local" -G "Unix Makefiles"
-        endif()
+        cmake -Bbuild -DCMAKE_INSTALL_PREFIX="$HOME/.local" -Dgtest_force_shared_crt=1 -G "MinGW Makefiles"
         cmake --build build --config Release
         cmake --build build --target install --config Release
         cd ..
-
+        
     - name: Call the ccache to cache files
       uses: actions/cache@v3
       with:
