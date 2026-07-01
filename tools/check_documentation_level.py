@@ -12,6 +12,7 @@ SEPARATOR_LENGTH = 40
 # Skipping line if it starts with:
 WORDS_TO_SKIP = ["#", "using ", "typedef "]
 SUPPORTED_EXTENSIONS = (".h", ".hpp", ".hh", ".hxx")
+DEFAULT_MIN_DOC_LEVEL = 0.7
 
 
 class DocumentationChecker:
@@ -321,7 +322,7 @@ def get_files_recursive(directory, extensions):
     return sorted(set(files))
 
 
-def documentation_check(dir_to_check):
+def documentation_check(dir_to_check, min_doc_level=DEFAULT_MIN_DOC_LEVEL):
     # Checking documentation level for all code files. If documentation level is less than 70% - test is failed, otherwise - passed.
     # Results are returned in two dictionaries: one with errors and one with extended summary (pass/fail).
     root_dir = Path(dir_to_check).expanduser().resolve()
@@ -341,7 +342,7 @@ def documentation_check(dir_to_check):
 
         if errors:
             results[relative_path] = errors
-            extended_results[relative_path] = "Fail" if percent < 0.7 else "Pass"
+            extended_results[relative_path] = "Fail" if percent < min_doc_level else "Pass"
         else:
             extended_results[relative_path] = "Pass"
 
@@ -352,9 +353,18 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Check documentation level in source files.")
     parser.add_argument("--dir", required=True, help="Path to source directory")
+    parser.add_argument(
+        "--min-doc-level",
+        type=float,
+        default=DEFAULT_MIN_DOC_LEVEL,
+        help="Minimum documentation level threshold in range [0.0, 1.0]",
+    )
     args = parser.parse_args()
 
-    results, extended_results = documentation_check(args.dir)
+    if not 0.0 <= args.min_doc_level <= 1.0:
+        raise ValueError("--min-doc-level must be between 0.0 and 1.0")
+
+    results, extended_results = documentation_check(args.dir, min_doc_level=args.min_doc_level)
 
     print("\nDocumentation level check results:")
     for file, errors in results.items():
