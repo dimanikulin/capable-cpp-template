@@ -50,6 +50,16 @@ class DocumentationChecker:
             for l in self.__lines
         )
 
+    def normalize_block_comment_text(self, text):
+        """Extract comment content from a C/C++ block comment line."""
+        text = text.strip()
+        if text.startswith("/*"):
+            text = text[2:]
+        if text.endswith("*/"):
+            text = text[:-2]
+        text = text.lstrip("*!").lstrip()
+        return text
+
     def strip_block_comments(self, line):
         """Remove C/C++ block comments while keeping comment text for doxygen tag detection."""
         cleaned = ""
@@ -58,9 +68,13 @@ class DocumentationChecker:
             if self.__inside_block_comment:
                 end = current.find("*/")
                 if end == -1:
-                    self.__lines.append(current.strip())
+                    comment_text = self.normalize_block_comment_text(current)
+                    if comment_text:
+                        self.__lines.append(comment_text)
                     return cleaned
-                self.__lines.append(current[: end + 2].strip())
+                comment_text = self.normalize_block_comment_text(current[: end + 2])
+                if comment_text:
+                    self.__lines.append(comment_text)
                 current = current[end + 2 :]
                 self.__inside_block_comment = False
                 continue
@@ -73,11 +87,15 @@ class DocumentationChecker:
             cleaned += current[:start]
             end = current.find("*/", start + 2)
             if end == -1:
-                self.__lines.append(current[start:].strip())
+                comment_text = self.normalize_block_comment_text(current[start:])
+                if comment_text:
+                    self.__lines.append(comment_text)
                 self.__inside_block_comment = True
                 break
 
-            self.__lines.append(current[start : end + 2].strip())
+            comment_text = self.normalize_block_comment_text(current[start : end + 2])
+            if comment_text:
+                self.__lines.append(comment_text)
             current = current[end + 2 :]
 
         return cleaned
