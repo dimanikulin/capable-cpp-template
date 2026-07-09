@@ -24,10 +24,16 @@ class DocumentationChecker:
         self.__file_errors = []
         self.__source_file = source_file
         self.__inside_block_comment = False
+        self.__inside_doxygen_block_comment = False
+        self.__has_doxygen_block_doc = False
+
+    def clear_doc_context(self):
+        self.__lines = []
+        self.__has_doxygen_block_doc = False
 
     def has_brief_doc(self):
         """Check if \\brief tag exists in documentation lines."""
-        return any("\\brief" in l or "@brief" in l for l in self.__lines)
+        return self.__has_doxygen_block_doc or any("\\brief" in l or "@brief" in l for l in self.__lines)
 
     def has_param_doc(self):
         """Count \\param tags in documentation lines."""
@@ -39,7 +45,7 @@ class DocumentationChecker:
 
     def has_any_doc(self):
         """Check if any documentation tags exist in lines."""
-        return any(
+        return self.__has_doxygen_block_doc or any(
             "///" in l
             or "\\brief" in l
             or "@brief" in l
@@ -69,14 +75,17 @@ class DocumentationChecker:
                 end = current.find("*/")
                 if end == -1:
                     comment_text = self.normalize_block_comment_text(current)
-                    if comment_text:
+                    if self.__inside_doxygen_block_comment and comment_text:
+                        self.__has_doxygen_block_doc = True
                         self.__lines.append(comment_text)
                     return cleaned
                 comment_text = self.normalize_block_comment_text(current[: end + 2])
-                if comment_text:
+                if self.__inside_doxygen_block_comment and comment_text:
+                    self.__has_doxygen_block_doc = True
                     self.__lines.append(comment_text)
                 current = current[end + 2 :]
                 self.__inside_block_comment = False
+                self.__inside_doxygen_block_comment = False
                 continue
 
             start = current.find("/*")
@@ -85,16 +94,20 @@ class DocumentationChecker:
                 break
 
             cleaned += current[:start]
+            is_doxygen_comment = current.startswith(("/**", "/*!"), start)
             end = current.find("*/", start + 2)
             if end == -1:
                 comment_text = self.normalize_block_comment_text(current[start:])
-                if comment_text:
+                if is_doxygen_comment and comment_text:
+                    self.__has_doxygen_block_doc = True
                     self.__lines.append(comment_text)
                 self.__inside_block_comment = True
+                self.__inside_doxygen_block_comment = is_doxygen_comment
                 break
 
             comment_text = self.normalize_block_comment_text(current[start : end + 2])
-            if comment_text:
+            if is_doxygen_comment and comment_text:
+                self.__has_doxygen_block_doc = True
                 self.__lines.append(comment_text)
             current = current[end + 2 :]
 
@@ -114,7 +127,7 @@ class DocumentationChecker:
 
                 if "class " in line or "struct " in line:
                     self.check_one_class(line, f)
-                    self.__lines = []
+                    self.clear_doc_context()
                     continue
 
                 if "enum " in line:
@@ -124,7 +137,7 @@ class DocumentationChecker:
                     else:
                         expected = "/// \\brief [enum description]\n (Maybe use enum class instead)"
                         self.add_error(expected)
-                    self.__lines = []
+                    self.clear_doc_context()
 
                 elif "union " in line:
                     self.__all_entities += 1
@@ -133,7 +146,7 @@ class DocumentationChecker:
                     else:
                         expected = "/// \\brief [union description]\n (Unions shouldn't be used at all))"
                         self.add_error(expected)
-                    self.__lines = []
+                    self.clear_doc_context()
 
                 elif line.startswith("const") and ("(" not in line.split("=")[0] or "(" not in line.split("{")[0]):
                     self.__all_entities += 1
@@ -142,11 +155,11 @@ class DocumentationChecker:
                     else:
                         expected = "/// [const description]"
                         self.add_error(expected)
-                    self.__lines = []
+                    self.clear_doc_context()
 
                 elif "(" in line:
                     self.check_one_function(line, f)
-                    self.__lines = []
+                    self.clear_doc_context()
                     continue
 
                 if "{" in line and "}" not in line:
@@ -187,7 +200,7 @@ class DocumentationChecker:
         else:
             expected = "/// \\brief [class/struct description]"
             self.add_error(expected)
-        self.__lines = []
+        self.clear_doc_context()
 
         # Looping through class fields looking for functions
         while "{" not in line:
@@ -199,12 +212,12 @@ class DocumentationChecker:
 
                 if "class " in line or "struct " in line:
                     self.check_one_class(line, f)
-                    self.__lines = []
+                    self.clear_doc_context()
                     continue
 
                 if "(" in line:
                     self.check_one_function(line, f, class_name)
-                    self.__lines = []
+                    self.clear_doc_context()
                     continue
 
                 if "{" in line:
@@ -222,8 +235,9 @@ class DocumentationChecker:
             # Skipping function call but not a declaration
             if function_desc[0].count(" ") != 0 or (not class_name or class_name not in function_desc[0]):
                 expected = ""
+                has_function_doc = self.has_brief_doc()
                 self.__all_entities += 1
-                if self.has_brief_doc():
+                if has_function_doc:
                     self.__commented_entities += 1
                 else:
                     expected = "/// \\brief [function description]\n\n"
@@ -238,14 +252,19 @@ class DocumentationChecker:
                     function_params = function_params.split(",")
                     self.__all_entities += len(function_params)
                     commented_params = self.has_param_doc()
-                    self.__commented_entities += commented_params
-                    if commented_params != len(function_params):
+                    if commented_params:
+                        self.__commented_entities += commented_params
+                    elif has_function_doc:
+                        self.__commented_entities += len(function_params)
+                    if not has_function_doc and commented_params != len(function_params):
                         for i in range(len(function_params)):
                             expected += "/// \\param [parameter description]\n\n"
 
                 if function_desc[0].count(" ") > 0 and "void " not in function_desc[0]:
                     self.__all_entities += 1
                     if self.has_return_doc():
+                        self.__commented_entities += 1
+                    elif has_function_doc:
                         self.__commented_entities += 1
                     else:
                         expected += "/// \\return [return description]"
@@ -288,7 +307,7 @@ class DocumentationChecker:
             line = line.strip()
 
             if any(line.startswith(word) for word in WORDS_TO_SKIP):
-                self.__lines = []
+                self.clear_doc_context()
                 line = f.readline()
                 continue
 
