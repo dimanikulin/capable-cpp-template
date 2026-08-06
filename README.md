@@ -325,8 +325,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Publishing documentation on GitHub Pages
 - Git Copilot Skills - https://github.com/skills/expand-your-team-with-copilot/?tab=readme-ov-file, - https://www.linkedin.com/posts/%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%BA%D0%BE%D0%B2%D0%B0%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9-5b736664_%D1%8F%D0%BA%D1%89%D0%BE-%D0%B2%D0%B0%D0%BC-%D0%BD%D0%B5-%D0%B2%D0%B8%D1%81%D1%82%D0%B0%D1%87%D0%B0%D0%BB%D0%BE-%D1%81%D0%BA%D1%96%D0%BB%D0%BE%D0%B2-%D1%82%D0%BE-%D1%94-%D0%B3%D0%B0%D1%80%D0%BD%D1%96-activity-7427966037691617283-HTLd/?utm_source=share&utm_medium=member_ios&rcm=ACoAAAlsWb8BPAbKMyDiy56H2KfpjQJ1GthAUxM, 
 - Git Copilot Coding Agent - https://learn.microsoft.com/en-us/training/modules/github-copilot-code-agent/4-customize-extend-validate-copilot-code-agent
-- github/copilot-instructions.md 
-- github/security.instructions.md
 - main file
 https://github.com/TheQtCompanyRnD/agent-skills
 
