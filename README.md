@@ -68,7 +68,7 @@ Any feedback is greatly appreciated!
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**     | Yes | By *CppCheck* GitHub Action and *clang-tidy* |
 |  | **Clean**               | Yes | Using *GitHub Actions* CI step |
-|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size, doc level |
+|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
@@ -77,6 +77,8 @@ Any feedback is greatly appreciated!
 |  | **MarkDown Lint**       | Yes | Using *markdownlint-cli2* |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
+|  | **Documentation level** | Yes | Using *py* script |
+
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                  | Yes | Installed on CI only |
@@ -316,7 +318,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Compares with the max allowed.
 
 # Coming features
-- documentation_level_check
 - Package manager support for Mac and Linux
 - Dockerfile
 - QT support (CI and local)
