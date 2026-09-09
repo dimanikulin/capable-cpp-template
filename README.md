@@ -68,7 +68,7 @@ Any feedback is greatly appreciated!
 |  | **MD templates**        | N/A | Attractive main *README* (*Logo*, *Badges*, *Quick Links*, *Tables*, *Diagrams*, *References*) |
 |  | **Static analysis**     | Yes | By *CppCheck* GitHub Action and *clang-tidy* |
 |  | **Clean**               | Yes | Using *GitHub Actions* CI step |
-|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size, doc level |
+|  | **Code Checks**         | Yes | By Python scripts: suspect words, boilerplates, file size |
 |  | **Building**            | Yes | Build with *Ninja* and *CMake,* Use of *Ccache* to speed up the rebuilds |
 |  | **Testing**             | Yes | Unit testing with *GTest* and *CTests* (with an option to enable), uploading results to *GitHub* |
 |  | **Coverage**            | Yes | Using *GCov* and *LCov*, ziping by *7xip*, uploading report to *GitHub* |
@@ -77,6 +77,8 @@ Any feedback is greatly appreciated!
 |  | **MarkDown Lint**       | Yes | Using *markdownlint-cli2* |
 |  | **Packaging**           | Yes | Stripping binaries, ziping by *7xip*, uploading binaries to *GitHub*, Windows package by *WiX* |
 |  | **Documentation**       | Yes | Using *Doxygen*, Source view by *gitdiagram* |
+|  | **Documentation level** | Yes | Using *py* script |
+
 |  | **CI**                  | Yes | Using *GitHub Actions* CI workflows for *Windows,* *Linux* and *MacOS* operation systems |
 |  | **gitignore**           | N/A | Uses well known *ignore file* [from this repo](https://github.com/github/gitignore) |
 |  | **QT**                  | Yes | Installed on CI only |
@@ -316,7 +318,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Compares with the max allowed.
 
 # Coming features
-- documentation_level_check
 - Package manager support for Mac and Linux
 - Dockerfile
 - QT support (CI and local)
@@ -324,8 +325,6 @@ You will need to update <YOUR COMPANY NAME> in boilerplate.txt to start using th
 - Publishing documentation on GitHub Pages
 - Git Copilot Skills - https://github.com/skills/expand-your-team-with-copilot/?tab=readme-ov-file, - https://www.linkedin.com/posts/%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%BA%D0%BE%D0%B2%D0%B0%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9-5b736664_%D1%8F%D0%BA%D1%89%D0%BE-%D0%B2%D0%B0%D0%BC-%D0%BD%D0%B5-%D0%B2%D0%B8%D1%81%D1%82%D0%B0%D1%87%D0%B0%D0%BB%D0%BE-%D1%81%D0%BA%D1%96%D0%BB%D0%BE%D0%B2-%D1%82%D0%BE-%D1%94-%D0%B3%D0%B0%D1%80%D0%BD%D1%96-activity-7427966037691617283-HTLd/?utm_source=share&utm_medium=member_ios&rcm=ACoAAAlsWb8BPAbKMyDiy56H2KfpjQJ1GthAUxM, 
 - Git Copilot Coding Agent - https://learn.microsoft.com/en-us/training/modules/github-copilot-code-agent/4-customize-extend-validate-copilot-code-agent
-- github/copilot-instructions.md 
-- github/security.instructions.md
 - main file
 https://github.com/TheQtCompanyRnD/agent-skills
 
